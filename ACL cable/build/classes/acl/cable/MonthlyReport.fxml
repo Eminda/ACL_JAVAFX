@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="657.0" style="-fx-background-color: #a7bbef;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="acl.cable.MonthlyReportController">
+   <center>
+      <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #a7bbef;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="ACF">
+               <content>
+                  <BorderPane fx:id="borderPaneACF" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #a7bbef;" />
+               </content>
+            </Tab>
+          <Tab text="CCF">
+               <content>
+                  <BorderPane fx:id="borderPaneCCF" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #a7bbef;" />
+               </content>
+            </Tab>
+            <Tab text="FCF">
+               <content>
+                  <BorderPane fx:id="borderPaneFCF" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #a7bbef;" />
+               </content>
+            </Tab>
+            <Tab text="DNYF">
+               <content>
+                  <BorderPane fx:id="borderPaneDNYF" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #a7bbef;" />
+               </content>
+            </Tab>
+        </tabs>
+         <effect>
+            <ColorAdjust hue="0.05" />
+         </effect>
+      </TabPane>
+   </center>
+   <top>
+      <BorderPane prefHeight="86.0" prefWidth="600.0" style="-fx-background-color: #a7bbef;" BorderPane.alignment="CENTER">
+         <top>
+            <Label maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="464.0" style="-fx-background-color: #a7bbef;" text="Monthly Report" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Verdana" size="24.0" />
+               </font>
+            </Label>
+         </top>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #a7bbef;" BorderPane.alignment="CENTER">
+               <children>
+                  <ComboBox layoutX="94.0" layoutY="17.0" prefHeight="25.0" prefWidth="91.0" />
+                  <Label layoutX="30.0" layoutY="20.0" text="Year">
+                     <font>
+                        <Font name="Verdana" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="218.0" layoutY="21.0" text="Month">
+                     <font>
+                        <Font name="Verdana" size="14.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox layoutX="285.0" layoutY="17.0" prefHeight="25.0" prefWidth="91.0" />
+                  <Button layoutX="398.0" layoutY="17.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="49.0" text="Find" />
+                  <Button layoutX="563.0" layoutY="18.0" mnemonicParsing="false" onMouseClicked="#viewButtonClicked" text="Table View" AnchorPane.rightAnchor="20.0" />
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </top>
+</BorderPane>

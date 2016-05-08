@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="692.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="acl.cable.MachineMaintananceController">
+   <children>
+      <BorderPane layoutY="-2.0" prefHeight="416.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
+         <center>
+            <AnchorPane fx:id="pnlAnchrDataOut" onZoom="#pnlScrlZoom" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #aabbcc;" BorderPane.alignment="CENTER">
+               <children>
+                  <ScrollPane fx:id="pnlScrlData" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="538.0" prefWidth="554.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <content>
+                        <AnchorPane fx:id="pnlAnchrDataIn" minHeight="0.0" minWidth="0.0" prefHeight="538.0" prefWidth="553.0" style="-fx-background-color: #aabbcc;">
+                           <children>
+                              <FlowPane AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <VBox fx:id="vboxData" prefHeight="499.0" prefWidth="528.0">
+                                       <children>
+                                          <Accordion />
+                                          <Accordion />
+                                          <Accordion />
+                                          <Accordion />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </center>
+         <effect>
+            <Bloom threshold="1.0" />
+         </effect>
+         <left>
+            <FlowPane maxWidth="1.7976931348623157E308" prefHeight="533.0" prefWidth="141.0" style="-fx-background-color: #6b62e0;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="141.0" text="Create">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="141.0" text="View" textAlignment="CENTER" textOverrun="CLIP">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </FlowPane>
+         </left>
+         <top>
+            <Label fx:id="lblHeading" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="36.0" style="-fx-background-color: #6b62e0;" text="ACL Cables Machine Managing System" textAlignment="CENTER" textFill="WHITE" wrapText="true" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Verdana Bold" size="31.0" />
+               </font>
+            </Label>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

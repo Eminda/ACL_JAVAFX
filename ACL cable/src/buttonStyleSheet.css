@@ -1,0 +1,6 @@
+.button{    
+	-fx-background-image: url('1.jpg');
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: cover;
+	-fx-text-color: white;
+}
