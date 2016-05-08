@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="670.0" style="-fx-background-color: #a7bbef;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="acl.cable.EmployeeMeController">
+   <center>
+      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="365.0" prefWidth="670.0" style="-fx-background-color: #a7bbef;" BorderPane.alignment="CENTER">
+         <right>
+            <AnchorPane prefHeight="406.0" prefWidth="231.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="27.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@man128.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="76.0" layoutY="212.0" mnemonicParsing="false" text="Change" />
+               </children>
+            </AnchorPane>
+         </right>
+         <center>
+            <BorderPane fx:id="borderPaneEmployee" prefHeight="378.0" prefWidth="441.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </center>
+   <bottom>
+      <AnchorPane prefHeight="203.0" prefWidth="670.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Change Password">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="82.0" layoutY="57.0" text="New Password">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="82.0" layoutY="96.0" text="Confirm Password">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="82.0" layoutY="134.0" text="Current Password">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <PasswordField layoutX="230.0" layoutY="55.0" prefHeight="25.0" prefWidth="168.0" />
+            <PasswordField layoutX="231.0" layoutY="93.0" prefHeight="25.0" prefWidth="168.0" />
+            <PasswordField layoutX="230.0" layoutY="132.0" prefHeight="25.0" prefWidth="168.0" />
+            <Button layoutX="414.0" layoutY="132.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Confirm" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

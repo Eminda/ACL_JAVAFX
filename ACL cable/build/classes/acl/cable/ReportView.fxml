@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="692.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="acl.cable.ReportViewController">
+    <children>
+        <BorderPane layoutY="-2.0" prefHeight="416.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
+            <effect>
+                <Bloom threshold="1.0" />
+            </effect>
+            <left>
+                <FlowPane maxWidth="1.7976931348623157E308" onMouseClicked="#btnBackButtonClicked" prefHeight="533.0" prefWidth="141.0" style="-fx-background-color: #6b62e0;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#btnMachineEfficiencyClicked" prefHeight="70.0" prefWidth="141.0" text="Machine&#10;Efficiency" textAlignment="CENTER">
+                            <font>
+                                <Font name="Verdana Bold" size="18.0" />
+                            </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onMouseClicked="#btnResponseTimeClicked" prefHeight="70.0" prefWidth="141.0" text="Response&#10;Time" textAlignment="CENTER" textOverrun="CLIP">
+                            <font>
+                                <Font name="Verdana Bold" size="18.0" />
+                            </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onMouseClicked="#btnWorkingTimeClicked" prefHeight="70.0" prefWidth="141.0" text="Working&#10;Time" textAlignment="CENTER">
+                            <font>
+                                <Font name="Verdana Bold" size="18.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="btnFake" mnemonicParsing="false" onMouseClicked="#btnCostVerificationClicked" prefHeight="70.0" prefWidth="141.0" text="Cost&#10;Verification" textAlignment="CENTER">
+                            <font>
+                                <Font name="Verdana Bold" size="18.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="btnFake1" mnemonicParsing="false" onMouseClicked="#btnFaultPercentageClicked" prefHeight="70.0" prefWidth="141.0" text="Fault&#10;Percentage" textAlignment="CENTER">
+                            <font>
+                                <Font name="Verdana Bold" size="18.0" />
+                            </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onMouseClicked="#btnBackButtonClicked" prefHeight="25.0" prefWidth="140.0">
+                            <graphic>
+                                <ImageView fitHeight="31.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@back.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </FlowPane>
+            </left>
+            <top>
+                <Label fx:id="lblHeading" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="36.0" style="-fx-background-color: #6b62e0;" text="ACL Cables Reports" textAlignment="CENTER" textFill="WHITE" wrapText="true" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="Verdana Bold" size="24.0" />
+                    </font>
+                </Label>
+            </top>
+            <center>
+                <VBox fx:id="vboxData" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #aabbcc;" BorderPane.alignment="CENTER" />
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>
