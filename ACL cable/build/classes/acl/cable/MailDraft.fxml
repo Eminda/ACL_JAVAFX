@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="85.0" prefWidth="600.0" style="-fx-background-color: #ff6666;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="acl.cable.MailDraftController">
+   <children>
+      <Label layoutX="110.0" layoutY="13.0" text="From:" AnchorPane.leftAnchor="110.0">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="110.0" layoutY="35.0" text="Subject:" AnchorPane.leftAnchor="110.0">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="189.0" layoutY="13.0" text="Sender" AnchorPane.leftAnchor="189.0">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="189.0" layoutY="35.0" text="Subject" AnchorPane.leftAnchor="189.0">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="111.0" layoutY="57.0" text="Date and Time" AnchorPane.leftAnchor="110.0">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="72.0" fitWidth="72.0" layoutX="9.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="9.0" />
+      <Button layoutX="518.0" layoutY="43.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="72.0" text="Delete" AnchorPane.rightAnchor="10.0">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="518.0" layoutY="12.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="72.0" text="Send" AnchorPane.rightAnchor="10.0">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

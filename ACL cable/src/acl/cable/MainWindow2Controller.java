@@ -108,12 +108,15 @@ public class MainWindow2Controller implements Initializable {
         FXMLLoader fx = new FXMLLoader(getClass().getClassLoader().getResource("ReportView.fxml"));
         fx.setBuilderFactory(new JavaFXBuilderFactory());
         AnchorPane pane = (AnchorPane) fx.load(getClass().getResource("ReportView.fxml"));
-        
+
         MainWindowController.controller.setPanelToCener(pane);
     }
 
-    public void btnMailClicked() {
-
+    public void btnMailClicked() throws IOException {
+        FXMLLoader fx = new FXMLLoader(getClass().getClassLoader().getResource("MailHome.fxml"));
+        fx.setBuilderFactory(new JavaFXBuilderFactory());
+        BorderPane pane = (BorderPane) fx.load(getClass().getResource("MailHome.fxml"));
+        MainWindowController.controller.setPanelToCener(pane);
     }
 
     public void btnUserControllerClicked() throws IOException {
@@ -127,7 +130,7 @@ public class MainWindow2Controller implements Initializable {
         FXMLLoader fx = new FXMLLoader(getClass().getClassLoader().getResource("MachineManage.fxml"));
         fx.setBuilderFactory(new JavaFXBuilderFactory());
         AnchorPane pane = (AnchorPane) fx.load(getClass().getResource("MachineManage.fxml"));
-        
+
         MainWindowController.controller.setPanelToCener(pane);
     }
 }

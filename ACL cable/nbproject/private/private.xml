@@ -5,24 +5,31 @@
         <group>
             <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/ReportViewController.java</file>
             <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/mail/NewJFrame.java</file>
+            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/LookupMachineEfficencyController.java</file>
+            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/nbproject/jfx-impl.xml</file>
+            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/MachineManageCreateController.java</file>
+            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/ReportView.fxml</file>
+            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/MachineManage.fxml</file>
+            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/MainWindow2Controller.java</file>
+            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/EmployeeViewController.java</file>
+            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/back.png</file>
+            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/CostVerificationController.java</file>
+            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/MainWindow2.fxml</file>
+            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/LookupMachineEfficency.fxml</file>
+            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/MachineManageView.fxml</file>
             <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/FaultReport.fxml</file>
             <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/MainWindowController.java</file>
             <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/EmployeeView.fxml</file>
             <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/NewClass.java</file>
             <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/ACL_Cables.java</file>
-            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/LookupMachineEfficencyController.java</file>
             <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/ResponseTimeController.java</file>
             <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/MonthlyReportController.java</file>
-            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/nbproject/jfx-impl.xml</file>
-            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/ReportView.fxml</file>
-            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/MainWindow2Controller.java</file>
-            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/EmployeeViewController.java</file>
-            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/back.png</file>
+            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/MailDraftController.java</file>
+            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/MainWindow.fxml</file>
             <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/mail/zx.java</file>
-            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/CostVerificationController.java</file>
             <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/MonthlyReport.fxml</file>
-            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/LookupMachineEfficency.fxml</file>
             <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/zx.java</file>
+            <file>file:/E:/Cs%20Mine/Semester%203%20project/1/ACL%20cable/src/acl/cable/MachineManageController.java</file>
         </group>
     </open-files>
 </project-private>

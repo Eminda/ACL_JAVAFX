@@ -44,9 +44,9 @@
             </FlowPane>
          </left>
          <top>
-            <Label fx:id="lblHeading" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="36.0" style="-fx-background-color: #6b62e0;" text="ACL Cables Machine Managing System" textAlignment="CENTER" textFill="WHITE" wrapText="true" BorderPane.alignment="CENTER">
+            <Label fx:id="lblHeading" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="36.0" style="-fx-background-color: #6b62e0;" text="ACL Cables Machine Management" textAlignment="CENTER" textFill="WHITE" wrapText="true" BorderPane.alignment="CENTER">
                <font>
-                  <Font name="Verdana Bold" size="31.0" />
+                  <Font name="Verdana Bold" size="24.0" />
                </font>
             </Label>
          </top>

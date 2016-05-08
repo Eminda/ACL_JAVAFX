@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="mainPane" prefHeight="609.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="acl.cable.MainWindow2Controller">
+<AnchorPane id="AnchorPane" fx:id="mainPane" prefHeight="609.0" prefWidth="858.0" style="-fx-background-color: #a7bbef;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="acl.cable.MainWindow2Controller">
     <children>
         <GridPane fx:id="grid" layoutX="42.0" layoutY="38.0" prefHeight="208.0" prefWidth="343.0" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="38.0">
             <columnConstraints>
@@ -29,7 +29,7 @@
                         <Insets />
                     </GridPane.margin>
                 </Button>
-                <Button fx:id="btn4" alignment="BOTTOM_CENTER" mnemonicParsing="false" text="Mail" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                <Button fx:id="btn4" alignment="BOTTOM_CENTER" mnemonicParsing="false" onMouseClicked="#btnMailClicked" text="Mail" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                 <Button fx:id="btn5" alignment="BOTTOM_CENTER" mnemonicParsing="false" onMouseClicked="#btnUserControllerClicked" text="Manage User" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                 <Button fx:id="btn6" alignment="BOTTOM_CENTER" mnemonicParsing="false" onMouseClicked="#btnMachineManageClicked" text="Manage Machine" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
             </children>
