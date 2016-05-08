@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TitledPane animated="false" prefHeight="240.0" prefWidth="566.0" text="Engineer Assignment" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="acl.cable.EngineerAssignmentViewController">
+   
+    <padding><Insets top="15" right="20" bottom="25" left="5"/></padding>
+    <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #aabbcc;">
+         <children>
+            <BorderPane layoutX="10.6" layoutY="13.6" prefHeight="221.0" prefWidth="559.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0">
+               <center>
+                  <VBox fx:id="vBoxInside" prefHeight="77.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </content>
+</TitledPane>

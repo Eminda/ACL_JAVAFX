@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="189.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <right>
+      <AnchorPane prefHeight="189.0" prefWidth="136.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="54.0" layoutY="51.0" prefHeight="17.0" prefWidth="54.0" text="Cost" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="47.0" />
+            <TextField layoutX="21.0" layoutY="82.0" prefHeight="25.0" prefWidth="101.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="14.0" />
+         </children>
+      </AnchorPane>
+   </right>
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" layoutY="86.0" prefHeight="17.0" prefWidth="197.0" text="Machine Name" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="86.0" />
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <PieChart BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

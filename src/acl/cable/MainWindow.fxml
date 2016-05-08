@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="464.0" prefWidth="689.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="acl.cable.MainWindowController">
+   <children>
+      <BorderPane prefHeight="395.0" prefWidth="672.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <Label fx:id="lblHeading" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="36.0" style="-fx-background-color: #443bb0;" text="ACL Cables Fault Managing System" textAlignment="CENTER" textFill="WHITE" wrapText="true" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Verdana Bold" size="31.0" />
+               </font>
+            </Label>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
