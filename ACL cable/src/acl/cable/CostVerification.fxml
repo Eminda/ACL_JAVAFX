@@ -1,114 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="662.0" prefWidth="801.0" style="-fx-background-color: #a7bbef;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="acl.cable.CostVerificationController">
-   <children>
-      <BorderPane prefHeight="484.0" prefWidth="699.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <top>
-            <BorderPane prefHeight="198.0" prefWidth="739.0" BorderPane.alignment="CENTER">
-               <top>
-                  <Label maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="298.0" style="-fx-background-color: #7290db;" text="COST VERIFICATION" BorderPane.alignment="CENTER">
-                     <font>
-                        <Font name="Verdana" size="24.0" />
-                     </font>
-                  </Label>
-               </top>
-               <bottom>
-                  <AnchorPane />
-               </bottom>
-               <center>
-                  <AnchorPane prefHeight="195.0" prefWidth="801.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label layoutX="39.0" layoutY="14.0" text="Division">
-                           <font>
-                              <Font size="15.0" />
-                           </font></Label>
-                        <Button layoutX="303.0" layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Find" />
-                        <ComboBox layoutX="149.0" layoutY="12.0" prefHeight="25.0" prefWidth="211.0" />
-                        <Label layoutX="39.0" layoutY="53.0" text="From">
-                           <font>
-                              <Font size="15.0" />
-                           </font></Label>
-                        <Label layoutX="59.0" layoutY="138.0" text="Total Cost">
-                           <font>
-                              <Font name="System Bold" size="17.0" />
-                           </font></Label>
-                        <Label layoutX="401.0" layoutY="53.0" prefHeight="21.0" prefWidth="24.0" text="To">
-                           <font>
-                              <Font size="15.0" />
-                           </font></Label>
-                        <TextField layoutX="149.0" layoutY="51.0" prefHeight="25.0" prefWidth="140.0" />
-                        <TextField layoutX="511.0" layoutY="51.0" prefHeight="25.0" prefWidth="140.0" />
-                        <Separator layoutY="128.0" prefHeight="0.0" prefWidth="801.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                        <Label layoutX="149.0" layoutY="138.0" prefHeight="17.0" prefWidth="140.0" text="3500">
-                           <font>
-                              <Font name="System Bold" size="17.0" />
-                           </font></Label>
-                        <Button layoutX="223.0" layoutY="88.0" mnemonicParsing="false" text="Set Filter" />
-                        <Separator layoutX="-2.0" layoutY="169.0" prefHeight="0.0" prefWidth="801.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                        <Label layoutX="401.0" layoutY="14.0" text="Machine">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <ComboBox layoutX="511.0" layoutY="12.0" prefHeight="25.0" prefWidth="211.0" />
-                     </children>
-                  </AnchorPane>
-               </center>
-            </BorderPane>
-         </top>
-         <center>
-            <PieChart fx:id="pieChart" BorderPane.alignment="CENTER" />
-         </center>
-         <right>
-            <AnchorPane prefHeight="463.0" prefWidth="411.0" BorderPane.alignment="CENTER">
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <AnchorPane prefHeight="258.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </center>
+   <top>
+      <GridPane prefHeight="161.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="49.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="89.0" minHeight="10.0" prefHeight="89.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label layoutX="22.0" layoutY="29.0" text="Total Breakdown Time">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="25.0" layoutY="98.0" text="Electrical Breakdown">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="25.0" layoutY="135.0" text="Mechanical Breakdown">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="22.0" layoutY="257.0" prefHeight="21.0" prefWidth="79.0" text="Total Cost">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="25.0" layoutY="314.0" prefHeight="21.0" prefWidth="125.0" text="Cost for Electrical">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="25.0" layoutY="350.0" prefHeight="21.0" prefWidth="136.0" text="Cost for Mechanical">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <TextField layoutX="195.0" layoutY="27.0" />
-                  <TextField layoutX="195.0" layoutY="96.0" />
-                  <TextField layoutX="195.0" layoutY="133.0" />
-                  <TextField layoutX="197.0" layoutY="255.0" prefHeight="25.0" prefWidth="135.0" />
-                  <TextField layoutX="197.0" layoutY="312.0" prefHeight="25.0" prefWidth="135.0" />
-                  <TextField layoutX="197.0" layoutY="348.0" prefHeight="25.0" prefWidth="135.0" />
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="220.0" text="Cost Verification" />
                </children>
-            </AnchorPane>
-         </right>
-      </BorderPane>
-   </children>
-</AnchorPane>
+            </FlowPane>
+         </children>
+      </GridPane>
+   </top>
+</BorderPane>

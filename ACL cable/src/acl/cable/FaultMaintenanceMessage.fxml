@@ -8,44 +8,48 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="175.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="acl.cable.FaultMaintenanceMessageController">
-   <top>
-      <Label maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="689.0" text="El/004" BorderPane.alignment="CENTER">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-   </top>
-   <right>
-      <AnchorPane maxWidth="1.7976931348623157E308" prefHeight="143.0" prefWidth="123.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="92.0" fitWidth="91.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="55.0" layoutY="113.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="View" />
-         </children>
-      </AnchorPane>
-   </right>
-   <center>
-      <AnchorPane fx:id="mainPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label layoutX="23.0" layoutY="14.0" text="Job Issuing Division">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="175.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="acl.cable.FaultMaintenanceMessageController">
+   <children>
+      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="175.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <center>
+            <AnchorPane fx:id="mainPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="23.0" layoutY="14.0" text="Job Issuing Division">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="23.0" layoutY="42.0" text="Machine">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="23.0" layoutY="72.0" text="Brief Description">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtJobIssuingDivision" layoutX="181.0" layoutY="12.0" prefHeight="25.0" prefWidth="148.0" />
+                  <TextField layoutX="181.0" layoutY="42.0" />
+                  <TextArea layoutX="181.0" layoutY="71.0" prefHeight="58.0" prefWidth="285.0" />
+               </children>
+            </AnchorPane>
+         </center>
+         <right>
+            <AnchorPane maxWidth="1.7976931348623157E308" prefHeight="143.0" prefWidth="123.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="92.0" fitWidth="91.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="btnView" layoutX="55.0" layoutY="113.0" mnemonicParsing="false" onMouseClicked="#btnViewClicked" prefHeight="25.0" prefWidth="51.0" text="View" />
+               </children>
+            </AnchorPane>
+         </right>
+         <top>
+            <Label maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="689.0" text="El/004" BorderPane.alignment="CENTER">
                <font>
-                  <Font size="15.0" />
+                  <Font size="22.0" />
                </font>
             </Label>
-            <Label layoutX="23.0" layoutY="42.0" text="Machine">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Label layoutX="23.0" layoutY="72.0" text="Brief Description">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <TextField layoutX="181.0" layoutY="12.0" prefHeight="25.0" prefWidth="148.0" />
-            <TextField layoutX="181.0" layoutY="42.0" />
-            <TextArea layoutX="181.0" layoutY="71.0" prefHeight="58.0" prefWidth="285.0" />
-         </children>
-      </AnchorPane>
-   </center>
-</BorderPane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

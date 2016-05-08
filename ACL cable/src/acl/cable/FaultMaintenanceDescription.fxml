@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="29.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <HBox prefHeight="200.0" prefWidth="346.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <RadioButton mnemonicParsing="false" selected="true" text="Recent">
+               <toggleGroup>
+                  <ToggleGroup fx:id="radioButtonGroup" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton mnemonicParsing="false" text="Priority" toggleGroup="$radioButtonGroup" />
+            <Pane prefHeight="29.0" prefWidth="208.0" />
+            <Label style="-fx-background-color: #f67483;" text="   " />
+            <Label text="High" />
+            <Label style="-fx-background-color: #f6c374;" text="   " />
+            <Label text="Medium" />
+            <Label style="-fx-background-color: #6ff184;" text="   " />
+            <Label text="Low" />
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

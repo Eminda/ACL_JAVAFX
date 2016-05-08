@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -8,56 +9,41 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="759.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="540.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TitledPane animated="false" layoutX="40.0" layoutY="30.0" prefHeight="322.0" prefWidth="566.0" text="Engineer Assignment" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="55.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #aabbcc;">
+      <BorderPane layoutX="10.6" layoutY="13.6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="221.0" prefWidth="559.0" style="-fx-background-color: #aabbcc;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <bottom>
+            <AnchorPane prefHeight="0.0" prefWidth="540.0" BorderPane.alignment="CENTER" />
+         </bottom>
+         <center>
+            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="190.0" prefWidth="540.0" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets top="5.0" />
+               </padding></VBox>
+         </center>
+         <top>
+            <FlowPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="540.0" BorderPane.alignment="CENTER">
                <children>
-                  <BorderPane layoutX="10.6" layoutY="13.6" prefHeight="221.0" prefWidth="559.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0">
-                     <top>
-                        <FlowPane prefHeight="30.0" prefWidth="540.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <Label text="     " />
-                              <Label text="Choose Engineer :">
-                                 <font>
-                                    <Font name="Verdana" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label text="     " />
-                              <ComboBox prefHeight="25.0" prefWidth="237.0" visibleRowCount="15" />
-                              <Label text="     " />
-                              <Button mnemonicParsing="false" text="Assign" />
-                           </children>
-                        </FlowPane>
-                     </top>
-                     <center>
-                        <VBox prefHeight="190.0" prefWidth="540.0" BorderPane.alignment="CENTER" />
-                     </center>
-                     <bottom>
-                        <AnchorPane prefHeight="0.0" prefWidth="540.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <Button layoutX="472.0" mnemonicParsing="false" text="Confirm" />
-                           </children>
-                        </AnchorPane>
-                     </bottom>
-                  </BorderPane>
+                  <Label text="     " />
+                  <Label text="Choose Worker">
+                     <font>
+                        <Font name="Verdana" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="     " />
+                  <ComboBox prefHeight="25.0" prefWidth="237.0" visibleRowCount="15" />
+                  <Label text="     " />
+                  <Button mnemonicParsing="false" text="Assign" />
+                  <Button mnemonicParsing="false" text="Confirm">
+                     <FlowPane.margin>
+                        <Insets left="10.0" />
+                     </FlowPane.margin></Button>
                </children>
-            </AnchorPane>
-        </content>
-      </TitledPane>
-      <TitledPane animated="false" layoutX="31.0" layoutY="461.0" prefHeight="240.0" prefWidth="566.0" text="Engineer Assignment">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #aabbcc;">
-               <children>
-                  <BorderPane layoutX="10.6" layoutY="13.6" prefHeight="221.0" prefWidth="559.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0">
-                     <center>
-                        <VBox prefHeight="77.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
-                     </center>
-                  </BorderPane>
-               </children>
-            </AnchorPane>
-         </content>
-      </TitledPane>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </FlowPane>
+         </top>
+      </BorderPane>
    </children>
 </AnchorPane>

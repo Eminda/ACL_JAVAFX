@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -8,13 +9,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="692.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="acl.cable.FaultReportController">
+<AnchorPane id="AnchorPane" fx:id="mainPane" prefHeight="570.0" prefWidth="692.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="acl.cable.FaultReportController">
    <children>
       <BorderPane layoutY="-2.0" prefHeight="416.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
          <top>
             <Label fx:id="lblHeading" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="36.0" style="-fx-background-color: #6b62e0;" text="ACL Cables Fault Managing System" textAlignment="CENTER" textFill="WHITE" wrapText="true" BorderPane.alignment="CENTER">
                <font>
-                  <Font name="Verdana Bold" size="24.0" />
+                  <Font name="Verdana Bold" size="31.0" />
                </font>
             </Label>
          </top>
@@ -24,7 +25,7 @@
          <left>
             <FlowPane maxWidth="1.7976931348623157E308" prefHeight="533.0" prefWidth="141.0" style="-fx-background-color: #6b62e0;" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="141.0" text="New">
+                  <Button mnemonicParsing="false" onAction="#btnNewClicked" onMouseClicked="#btnNewClicked" prefHeight="70.0" prefWidth="141.0" text="New">
                      <font>
                         <Font name="Verdana Bold" size="18.0" />
                      </font>
@@ -34,12 +35,17 @@
                         <Font name="Verdana Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="141.0" text="Completed">
+                  <Button mnemonicParsing="false" onAction="#btnCompletedClicked" onMouseClicked="#btnCompletedClicked" prefHeight="70.0" prefWidth="141.0" text="Completed">
                      <font>
                         <Font name="Verdana Bold" size="18.0" />
                      </font>
                   </Button>
                   <Button fx:id="btnFake" mnemonicParsing="false" onMouseClicked="#btnFakeClicked" prefHeight="70.0" prefWidth="141.0" text="Fake">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnBack" mnemonicParsing="false" onMouseClicked="#btnBackClicked" prefHeight="31.0" prefWidth="141.0" text="Back">
                      <font>
                         <Font name="Verdana Bold" size="18.0" />
                      </font>
@@ -50,11 +56,11 @@
          <center>
             <AnchorPane fx:id="pnlAnchrDataOut" onZoom="#pnlScrlZoom" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #aabbcc;" BorderPane.alignment="CENTER">
                <children>
-                  <ScrollPane fx:id="pnlScrlData" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="538.0" prefWidth="554.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane fx:id="pnlScrlData" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="538.0" prefWidth="554.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <content>
                       <AnchorPane fx:id="pnlAnchrDataIn" minHeight="0.0" minWidth="0.0" prefHeight="538.0" prefWidth="553.0" style="-fx-background-color: #aabbcc;">
                            <children>
-                              <FlowPane prefHeight="518.0" prefWidth="536.0">
+                              <FlowPane fx:id="pnlFlowData" prefHeight="518.0" prefWidth="536.0">
                                  <children>
                                     <VBox fx:id="vboxData" prefHeight="499.0" prefWidth="528.0">
                                        <children>
