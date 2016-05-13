@@ -1,0 +1,7 @@
+add resigned date to Employee
+add Time to Cost
+Check and set isMaintenance() method in Fault class
+
+Need to have a table called Fake
+extend statue of Fault with fake
+Total cost must be in fault report

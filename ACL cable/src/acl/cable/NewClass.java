@@ -1,30 +1,25 @@
 package acl.cable;
 
 import com.sun.javafx.application.PlatformImpl;
-import java.awt.BorderLayout;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.application.Application;
 import javafx.embed.swing.JFXPanel;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-import javafx.stage.Stage;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class NewClass {
+public class NewClass{
     private static JPanel jp;
     public static void start(zx z,JPanel t) {
         jp=t;
+       
         PlatformImpl.startup(
                 new Runnable() {
                     public void run() {
@@ -44,6 +39,9 @@ public class NewClass {
                         TableColumn firstNameCol = new TableColumn("First Name");
                     TableColumn lastNameCol = new TableColumn("Last Name");
                     TableColumn emailCol = new TableColumn("Email");
+                    TableColumn e=new TableColumn("Inner one");
+                    TableColumn w=new TableColumn("Inner two");
+                    emailCol.getColumns().addAll(e,w);
 
                     table.getColumns ()
                     .addAll(firstNameCol, lastNameCol, emailCol);

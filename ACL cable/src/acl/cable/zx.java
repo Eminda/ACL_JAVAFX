@@ -6,12 +6,7 @@
 package acl.cable;
 
 import java.awt.Dimension;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javax.swing.JFrame;
+import java.util.Calendar;
 import javax.swing.JLabel;
 
 /**
@@ -89,7 +84,7 @@ public class zx extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        pnl.revalidate();
+        System.out.println(Calendar.getInstance().getTimeInMillis());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

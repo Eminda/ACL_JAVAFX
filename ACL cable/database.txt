@@ -1,0 +1,215 @@
+drop database ACL;
+create database ACL;
+use ACL;
+
+CREATE TABLE department(
+DID int,
+name varchar(20) not null,
+primary key (DID)
+)Engine=innodb;
+
+create table engineer(
+DID int not null,
+epfnoEng INT,
+nic varchar(10) NOT NULL,
+name VARCHAR(150) NOT NULL,
+preferedName varchar(20) NOT NULL,
+photo longblob,
+password VARCHAR(100),
+isresigned tinyint(1),
+resignedate date,
+unique (nic),
+foreign key (DID) references department (DID),
+PRIMARY KEY (EPFNOENG)
+)Engine=innodb;
+
+create table worker(
+DID int not null,
+epfnoWkr INT,
+nic varchar(10) NOT NULL,
+name VARCHAR(150) NOT NULL,
+preferedName varchar(20) NOT NULL,
+photo longblob,
+isresigned tinyint(1),
+resignedate date,
+unique (nic),
+foreign key (DID) references department (DID),
+PRIMARY KEY (EPFNOWKR)
+)Engine=innodb;
+
+create table division(
+diid int,
+name char not null,
+primary key (diid)
+);
+
+create table OIC(
+DIID int,
+epfnoOIC INT NOT NULL,
+nic INT NOT NULL,
+name VARCHAR(20) NOT NULL,
+preferedName varchar(20) NOT NULL,
+photo longblob,
+password VARCHAR(100),
+isresigned tinyint(1),
+resignedate date,
+unique (nic),
+foreign key (DIID) references division(DIID),
+PRIMARY KEY (EPFNOOIC)
+);
+
+
+create table machine(
+DIID int not null,
+MID int,
+name char not null,
+photo longblob,
+unique (name),
+primary key (MID),
+foreign key (DIID) references division (DIID)
+);
+
+
+create table fault (
+FID int,
+oicid int not null,
+engid int,
+mid int not null,
+genid int not null,
+unique (genid),
+faultOccur long,
+engassignedtime long,
+priority tinyint not null,
+description varchar(500),
+status tinyint(1),
+lasttime long,
+istimegapallowed tinyint(1),
+isMaintenance tinyint(1),
+isElectrical tinyint(1),
+primary key(FID),
+foreign key(OICID) references OIC(EPFNOOIC),
+foreign key(MID) references Machine(MID),
+foreign key(ENGID) references engineer(EPFNOENG)
+)engine=innodb;
+
+create table worker_fault(
+workerid int not null,
+faultid int not null,
+foreign key (workerid) references worker (epfnoWkr),
+foreign key (faultid) references fault (fid)
+);
+
+create table Fake(
+fakeID int,
+fakeDescription text,
+epfnoEng int,
+creationTime long,
+primary key (FAKEID),
+foreign key (epfnoEng) references engineer (epfnoEng)
+);
+
+
+
+CREATE TABLE Cost(
+CID int,
+DID int,
+directSkilled double,
+indirectSkilled double,
+directUnSkilled double,
+indirectUnSkilled double,
+TotalValue double,
+foreign key (DID) references department (DID),
+primary key (CID)
+);
+
+create table part(
+PID int,
+CID int,
+name varchar(20),
+value double,
+foreign key (CID) references Cost (CID),
+primary key (PID)
+);
+
+create table FaultReport(
+FRID INT,
+CID int,
+MachineStartTime long,
+JobCompletionTime long,
+FID int,
+FakeID int,
+epfnoEng int,
+epfnoWkr int,
+PRIMARY KEY (FRID),
+foreign key (Fid) references Fault (FID),
+foreign key (epfnoEng) references engineer (epfnoEng),
+foreign key (CID) references Cost(CID),
+foreign key (epfnoWkr) references Worker (epfnoWkr)
+);
+
+create table Node(
+NID int,
+primary key(NID)
+);
+
+create table MachineEfficiencyPrecentage(
+MEPID int,
+NID int,
+fromDate date,
+toDate date,
+totalTime long,
+breakdown long,
+totalCost double,
+primary key(MEPID),
+foreign key(NID) references Node(NID)
+)Engine=innodb;
+
+create table MachineEfficiencyTimeLineData(
+METID int,
+XValue varchar(10),
+YValue int,
+primary key(METID)
+);
+
+create table MachineEfficiencyTimeLine(
+MEID int,
+METID int,
+NID int,
+primary key(MEID),
+foreign key(METID) references MachineEfficiencyTimeLineData(METID),
+foreign key(NID) references Node(NID)
+); 
+
+create table CostVerification(
+CVID int not null,
+NID int,
+DIID int,
+MID int,
+fromDate date,
+toDate date,
+breakdown long,
+electricalBreakDown long,
+mechanicalBreakDown long,
+totalCost double,
+electricalCost double,
+mechanicalCost double,
+primary key(CVID),
+foreign key(NID) references Node(NID),
+foreign key(DIID) references Division(DIID),
+foreign key(MID) references Machine(MID)
+);
+
+create table Mail(
+MailID int,
+NID int,
+DIIDFrom int,
+DIIDTo int,
+time long,
+subject varchar(200),
+body varchar(1000),
+primary key(MAILID),
+foreign key(NID) references Node(NID),
+foreign key(DIIDFrom) references Division(DIID),
+foreign key(DIIDTo) references Division(DIID)
+);
+

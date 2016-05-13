@@ -47,7 +47,7 @@
       </FlowPane>
    </left>
    <top>
-      <Label alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-background-color: #6b62e0;" text="ACL CABLE MAILING SYSTEM" textFill="WHITE" BorderPane.alignment="CENTER">
+      <Label alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-background-color: #6b62e0;" text="ACL Cable Mail Management" textFill="WHITE" BorderPane.alignment="CENTER">
          <font>
             <Font name="Verdana Bold" size="24.0" />
          </font>
