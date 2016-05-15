@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="borderPane" prefHeight="49.0" prefWidth="566.0" style="-fx-background-color: #7e9ab7; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="acl.cable.EngineerAssignedController">
+   <center>
+      <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="461.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="     ">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label text="1)">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label text="     " />
+            <ImageView fitHeight="48.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lblName" text="Pushpakumara">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </center>
+   <right>
+      <FlowPane alignment="CENTER_RIGHT" prefHeight="49.0" prefWidth="87.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" text="Remove" />
+            <Label text="     " />
+         </children>
+      </FlowPane>
+   </right>
+</BorderPane>

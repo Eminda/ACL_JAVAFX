@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMousePressed="#mousePressed" onMouseReleased="#clcked" prefHeight="85.0" prefWidth="600.0" style="-fx-background-color: #a7bbef; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="acl.cable.MailInBoxController">
+   <children>
+      <Label layoutX="22.0" layoutY="14.0" text="From" AnchorPane.leftAnchor="22.0">
+         <font>
+            <Font name="Verdana" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="35.0" text="Subject" AnchorPane.leftAnchor="21.0">
+         <font>
+            <Font name="Verdana" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="139.0" layoutY="37.0" prefHeight="18.0" prefWidth="443.0" text="Subject" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="19.0">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="476.0" layoutY="14.0" text="Date and Time" AnchorPane.rightAnchor="20.0">
+         <font>
+            <Font name="Verdana" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="139.0" layoutY="16.0" prefHeight="18.0" prefWidth="280.0" text="Subject" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="182.0">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="22.0" layoutY="56.0" text="Message">
+         <font>
+            <Font name="Verdana" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="139.0" layoutY="58.0" prefHeight="18.0" prefWidth="441.0" text="Subject" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="22.0">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+      </Label>
+   </children>
+   <effect>
+      <Lighting>
+         <bumpInput>
+            <Shadow />
+         </bumpInput>
+         <light>
+            <Light.Distant />
+         </light>
+      </Lighting>
+   </effect>
+</AnchorPane>

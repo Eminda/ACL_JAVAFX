@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="528.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="167.0" style="-fx-background-color: #aaccdd;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="139.0" fitWidth="133.0" layoutX="17.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="240.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="21.0" />
+            <Button layoutX="49.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="Change" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="49.0" />
+            <Button layoutX="193.0" layoutY="361.0" mnemonicParsing="false" text="Create" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+         </children>
+      </AnchorPane>
+   </right>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #aaddcc;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="12.0" layoutY="38.0" prefHeight="17.0" prefWidth="86.0" text="Name" AnchorPane.leftAnchor="12.0">
+               <font>
+                  <Font name="Verdana" size="16.0" />
+               </font>
+            </Label>
+            <TextField layoutX="104.0" layoutY="36.0" prefHeight="25.0" prefWidth="245.0" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="12.0" />
+            <TextField layoutX="104.0" layoutY="71.0" prefHeight="25.0" prefWidth="245.0" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="12.0" />
+            <Label layoutX="12.0" layoutY="73.0" prefHeight="17.0" prefWidth="86.0" text="Factory" AnchorPane.leftAnchor="12.0">
+               <font>
+                  <Font name="Verdana" size="16.0" />
+               </font>
+            </Label>
+            <TextField layoutX="104.0" layoutY="106.0" prefHeight="25.0" prefWidth="245.0" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="12.0" />
+            <Label layoutX="12.0" layoutY="108.0" prefHeight="17.0" prefWidth="86.0" text="ID" AnchorPane.leftAnchor="12.0">
+               <font>
+                  <Font name="Verdana" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

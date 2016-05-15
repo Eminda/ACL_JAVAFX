@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="416.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="acl.cable.EmployeeViewController">
+   <effect>
+      <Bloom threshold="1.0" />
+   </effect>
+   <left>
+      <FlowPane maxWidth="1.7976931348623157E308" prefHeight="380.0" prefWidth="170.0" style="-fx-background-color: #6b62e0;" BorderPane.alignment="CENTER">
+         <children>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#btnMeClicked" prefHeight="70.0" prefWidth="170.0" text="Me&#10;" textAlignment="CENTER">
+               <font>
+                  <Font name="Verdana Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#btnEmployeeCteateClicked" prefHeight="70.0" prefWidth="170.0" text="Create&#10;Employee" textAlignment="CENTER" textOverrun="CLIP">
+               <font>
+                  <Font name="Verdana Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#btnCurrentEmployeeClicked" prefHeight="70.0" prefWidth="170.0" text="View Current &#10;Employee" textAlignment="CENTER">
+               <font>
+                  <Font name="Verdana Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnFake" mnemonicParsing="false" onMouseClicked="#btnResignedEmployeeClicked" prefHeight="70.0" prefWidth="170.0" text="View resigned&#10;Employee" textAlignment="CENTER">
+               <font>
+                  <Font name="Verdana Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnBack" mnemonicParsing="false" onMouseClicked="#btnBackClicked" prefHeight="35.0" prefWidth="170.0">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@back.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </FlowPane>
+   </left>
+   <top>
+      <Label fx:id="lblHeading" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="36.0" style="-fx-background-color: #6b62e0;" text="ACL Cable Employee Management" textAlignment="CENTER" textFill="WHITE" wrapText="true" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Verdana Bold" size="24.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <BorderPane fx:id="borderView" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #aabbcc;" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

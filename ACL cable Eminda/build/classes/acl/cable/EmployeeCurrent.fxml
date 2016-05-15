@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="616.0" style="-fx-background-color: #a7bbef;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="acl.cable.EmployeeCurrentController">
+   <top>
+      <AnchorPane prefHeight="57.0" prefWidth="616.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="Division" alignment="CENTER_RIGHT" layoutX="227.0" layoutY="18.0" prefHeight="27.0" prefWidth="166.0" text="Select Department" AnchorPane.leftAnchor="227.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="selectDivision" layoutX="399.0" layoutY="19.0" onAction="#selectDivision" prefHeight="25.0" prefWidth="203.0" promptText="All" AnchorPane.leftAnchor="399.0" />
+            <Separator layoutY="59.0" maxWidth="1.7976931348623157E308" prefHeight="3.0" prefWidth="616.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <ComboBox fx:id="selectType" layoutX="14.0" layoutY="19.0" onAction="#slectType" prefHeight="25.0" prefWidth="175.0" promptText="All" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #a7bbef;" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="name" maxWidth="10000.0" prefWidth="204.66668701171875" text="Name" />
+          <TableColumn fx:id="prefName" prefWidth="144.49072265625" text="Prefered Name" />
+            <TableColumn fx:id="nic" prefWidth="63.03863525390625" text="NIC" />
+            <TableColumn fx:id="epfno" prefWidth="52.72216796875" text="EPF No" />
+            <TableColumn fx:id="photo" prefWidth="122.1385498046875" text="Photo" />
+            <TableColumn maxWidth="1000.0" minWidth="0.0" prefWidth="28.9058837890625" text=" " />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </center>
+</BorderPane>
