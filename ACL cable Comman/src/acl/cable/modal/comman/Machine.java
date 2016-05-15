@@ -5,36 +5,30 @@
  */
 package acl.cable.modal.comman;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 /**
  *
  * @author Eminda
  */
-public class Machine {
+public class Machine implements Serializable{
     private int id;
     private String name;
-    private Calendar addedDate;
-    private Calendar removedDate;
-    private boolean isWorking;
     private Factory factory;
 
     public Machine() {
     }
 
-    public Machine(Factory factory,int id, String name, Calendar addedDate, Calendar removedDate, boolean isWorking) {
+    public Machine(Factory factory,int id, String name, boolean isWorking) {
         this.id = id;
         this.name = name;
-        this.addedDate = addedDate;
-        this.removedDate = removedDate;
-        this.isWorking = isWorking;
         this.factory=factory;
     }
     
-    public Machine(int id, String name, Calendar addedDate) {
+    public Machine(int id, String name) {
         this.id = id;
         this.name = name;
-        this.addedDate = addedDate;
     }
 
     /**
@@ -51,33 +45,7 @@ public class Machine {
         return name;
     }
 
-    /**
-     * @return the addedDate
-     */
-    public Calendar getAddedDate() {
-        return addedDate;
-    }
-
-    /**
-     * @return the removedDate
-     */
-    public Calendar getRemovedDate() {
-        return removedDate;
-    }
-
-    /**
-     * @param removedDate the removedDate to set
-     */
-    public void setRemovedDate(Calendar removedDate) {
-        this.removedDate = removedDate;
-    }
-
-    /**
-     * @return the isWorking
-     */
-    public boolean isWorking() {
-        return isWorking;
-    }
+   
 
     /**
      * @return the factory
@@ -85,4 +53,17 @@ public class Machine {
     public Factory getFactory() {
         return factory;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setFactory(Factory factory) {
+        this.factory = factory;
+    }
+    
 }

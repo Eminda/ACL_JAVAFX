@@ -17,8 +17,8 @@ public class CostVerification implements Report {
 
     private Division division;
     private Machine machine;
-    private Date from;
-    private Date to;
+    private long from;
+    private long to;
     private long totalBreakDown;
     private long electricalBreakDown;
     private long mechanicalBreakDown;
@@ -30,7 +30,7 @@ public class CostVerification implements Report {
     public CostVerification() {
     }
 
-    public CostVerification(Division division, Machine machine, Date from, Date to, long totalBreakDown, long electricalBreakDown, long mechanicalBreakDown, double totalCost, double electricalCost, double mechanicalCost) {
+    public CostVerification(Division division, Machine machine, long from, long to, long totalBreakDown, long electricalBreakDown, long mechanicalBreakDown, double totalCost, double electricalCost, double mechanicalCost) {
         this.division = division;
         this.machine = machine;
         this.from = from;
@@ -59,19 +59,19 @@ public class CostVerification implements Report {
         this.machine = machine;
     }
 
-    public Date getFrom() {
+    public long getFrom() {
         return from;
     }
 
-    public void setFrom(Date from) {
+    public void setFrom(long from) {
         this.from = from;
     }
 
-    public Date getTo() {
+    public long getTo() {
         return to;
     }
 
-    public void setTo(Date to) {
+    public void setTo(long to) {
         this.to = to;
     }
 

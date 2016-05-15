@@ -6,6 +6,7 @@
 package acl.cable.modal.Report;
 
 import acl.cable.modal.comman.Fault;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -13,10 +14,10 @@ import java.util.Calendar;
  *
  * @author Eminda
  */
-public class MachineEfficiencyFaults {
+public class MachineEfficiencyFaults implements Serializable{
     private long from;
     private long to;
-    private ArrayList<Fault> faults=new ArrayList<>();
+    private ArrayList<MachineEffieciencyFaultDetail> faults=new ArrayList<>();
 
     public MachineEfficiencyFaults() {
     }
@@ -37,17 +38,17 @@ public class MachineEfficiencyFaults {
         this.to = to;
     }
 
-    public ArrayList<Fault> getFaults() {
+    public ArrayList<MachineEffieciencyFaultDetail> getFaults() {
         return faults;
     }
 
-    public void setFaults(ArrayList<Fault> faults) {
+    public void setFaults(ArrayList<MachineEffieciencyFaultDetail> faults) {
         this.faults = faults;
     }
-    public void addFault(Fault fault){
+    public void addFault(MachineEffieciencyFaultDetail fault){
         faults.add(fault);
     }
-    public Fault getFault(int index){
+    public MachineEffieciencyFaultDetail getFault(int index){
         if(index>0 && faults.size()>index){
             return faults.get(index);
         }

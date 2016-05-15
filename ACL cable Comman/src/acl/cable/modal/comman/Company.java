@@ -5,13 +5,14 @@
  */
 package acl.cable.modal.comman;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Eminda
  */
-public class Company {
+public class Company implements Serializable{
     private ArrayList<Employee> employees=new ArrayList<>();
     private ArrayList<Division> divisions=new ArrayList<>();
 

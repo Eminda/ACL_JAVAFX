@@ -5,6 +5,7 @@
  */
 package acl.cable;
 
+import acl.cable.modal.comman.Employee;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,6 +28,7 @@ import javafx.scene.layout.BorderPane;
  */
 public class MainWindowController implements Initializable {
     public static MainWindowController controller;
+    public static Employee loggedUser;
     @FXML
     private Label label;
     @FXML

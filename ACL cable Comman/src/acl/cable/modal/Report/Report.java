@@ -5,10 +5,12 @@
  */
 package acl.cable.modal.Report;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Eminda
  */
-public interface Report {
+public interface Report extends Serializable{
     
 }

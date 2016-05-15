@@ -7,10 +7,12 @@
  */
 package acl.cable.modal.comman;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Eminda
  */
-public interface Division {
+public interface Division extends Serializable{
     
 }

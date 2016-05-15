@@ -5,6 +5,7 @@
  */
 package acl.cable.modal.Report;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.Calendar;
 
@@ -12,7 +13,7 @@ import java.util.Calendar;
  *
  * @author Eminda
  */
-public class MachineEfficiencyPercentage {
+public class MachineEfficiencyPercentage implements Serializable,Report{
     private long from;
     private long to;
     private long totalTime;

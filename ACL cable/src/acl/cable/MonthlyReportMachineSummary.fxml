@@ -9,22 +9,23 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="194.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
+   <center>
       <TableView maxHeight="5000.0" maxWidth="1.7976931348623157E308" style="-fx-background-color: #a7bbef;" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="54.0" text="No." />
-          <TableColumn prefWidth="143.0" text="Machine" />
-            <TableColumn minWidth="0.0" prefWidth="112.0" text="Total Time" />
-            <TableColumn maxWidth="100.0" prefWidth="100.0" text="Breakdown Time">
+          <TableColumn prefWidth="65.0" text="No." />
+          <TableColumn prefWidth="125.0" text="Machine" />
+            <TableColumn minWidth="0.0" prefWidth="62.0" text="Total Time" />
+            <TableColumn prefWidth="75.0" text="Total Break&#10;Down Time" />
+            <TableColumn maxWidth="246.0" prefWidth="232.0" text="Breakdown Time">
                <columns>
                   <TableColumn prefWidth="75.0" text="Electrical" />
                   <TableColumn prefWidth="75.0" text="Mechanical" />
                </columns>
             </TableColumn>
-            <TableColumn prefWidth="172.0" text="Breakdown Time %">
+            <TableColumn prefWidth="162.0" text="Breakdown Time %">
                <columns>
-                  <TableColumn prefWidth="75.0" text="Electrical" />
-                  <TableColumn prefWidth="75.0" text="Mechanical" />
+                  <TableColumn prefWidth="129.0" text="Electrical" />
+                  <TableColumn prefWidth="68.0" text="Mechanical" />
                </columns>
             </TableColumn>
         </columns>
@@ -32,5 +33,5 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-   </top>
+   </center>
 </BorderPane>

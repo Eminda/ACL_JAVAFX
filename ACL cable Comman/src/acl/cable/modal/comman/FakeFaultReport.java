@@ -5,14 +5,14 @@
  */
 package acl.cable.modal.comman;
 
-import acl.cable.modal.Report.Report;
+import java.io.Serializable;
 import java.util.Calendar;
 
 /**
  *
  * @author Eminda
  */
-public class FakeFaultReport implements Report{
+public class FakeFaultReport implements Serializable{
     private Fault faultReport;
     private Engineer falseReportCreatedEng;
     private Calendar time;

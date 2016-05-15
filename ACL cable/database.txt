@@ -39,7 +39,9 @@ PRIMARY KEY (EPFNOWKR)
 
 create table division(
 diid int,
-name char not null,
+name varchar(100) not null,
+shortName varchar(15) not null,
+unique(shortname),
 primary key (diid)
 );
 
@@ -62,7 +64,7 @@ PRIMARY KEY (EPFNOOIC)
 create table machine(
 DIID int not null,
 MID int,
-name char not null,
+name varchar(100) not null,
 photo longblob,
 unique (name),
 primary key (MID),
@@ -86,6 +88,7 @@ lasttime long,
 istimegapallowed tinyint(1),
 isMaintenance tinyint(1),
 isElectrical tinyint(1),
+noOfWorkers int,
 primary key(FID),
 foreign key(OICID) references OIC(EPFNOOIC),
 foreign key(MID) references Machine(MID),
@@ -114,7 +117,7 @@ CREATE TABLE Cost(
 CID int,
 DID int,
 directSkilled double,
-indirectSkilled double,
+indirectSkilld double,
 directUnSkilled double,
 indirectUnSkilled double,
 TotalValue double,
@@ -213,3 +216,5 @@ foreign key(DIIDFrom) references Division(DIID),
 foreign key(DIIDTo) references Division(DIID)
 );
 
+select f.FID,f.description,Date_format((SELECT FROM_UNIXTIME(f.faultOccur/1000)),'%Y-%m-%d') as Date,Date_format((SELECT FROM_UNIXTIME(f.faultOccur/1000)),'%r') as Time,isElectrical,f.noOfWorkers,(select c.TotalValue from faultReport fr,Cost c where f.FID=fr.FID and fr.CID=c.CID) as Cost from Fault f,Machine m where f.mid=m.MID order by f.genID;  
+insert into machine (name,fdf)

@@ -22,30 +22,34 @@
                   </Label>
                </top>
                <center>
-                  <AnchorPane prefHeight="49.0" prefWidth="695.0" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="52.0" prefWidth="695.0" BorderPane.alignment="CENTER">
                      <children>
                         <Label layoutX="27.0" layoutY="12.0" text="Division">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <ComboBox layoutX="110.0" layoutY="12.0" prefWidth="150.0">
-                           <effect>
-                              <SepiaTone level="0.13" />
-                           </effect></ComboBox>
+                        <ComboBox fx:id="comboDiv" editable="true" layoutX="110.0" layoutY="12.0" prefWidth="150.0" promptText="Select Division" />
                         <Label layoutX="303.0" layoutY="12.0" prefHeight="7.0" prefWidth="68.0" text="Machine">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <ComboBox layoutX="393.0" layoutY="12.0" prefWidth="150.0" />
+                        <ComboBox fx:id="comboMachine" editable="true" layoutX="393.0" layoutY="12.0" prefWidth="150.0" promptText="Select Machine" />
+                        <Button fx:id="btnFindReport" layoutX="585.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#btnFindPercentageReportClicked" prefHeight="25.0" prefWidth="67.0" text="Find" />
+                        <Label fx:id="machineDetail" layoutX="7.0" layoutY="56.0" prefHeight="23.0" prefWidth="429.0" text="Machine X of Factory 1">
+                           <font>
+                              <Font name="Verdana" size="18.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutY="49.0" prefHeight="5.0" prefWidth="695.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                      </children>
                   </AnchorPane>
                </center>
             </BorderPane>
          </top>
       </BorderPane>
-      <TabPane fx:id="tabPane" layoutY="93.0" prefHeight="465.0" prefWidth="695.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="-5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="93.0">
+      <TabPane fx:id="tabPane" layoutY="122.0" prefHeight="436.0" prefWidth="695.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="-5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="122.0">
         <tabs>
           <Tab text="Percentage">
                <content>
@@ -88,8 +92,20 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <children>
-                                    <TextField layoutX="21.0" layoutY="32.0" prefHeight="25.0" prefWidth="119.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="156.0" />
-                                    <TextField layoutX="21.0" layoutY="77.0" prefHeight="25.0" prefWidth="119.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="156.0" />
+                                    <TextField fx:id="txttotalTime" editable="false" layoutX="21.0" layoutY="32.0" prefHeight="25.0" prefWidth="119.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="156.0">
+                                       <effect>
+                                          <SepiaTone />
+                                       </effect>
+                                       <cursor>
+                                          <Cursor fx:constant="DISAPPEAR" />
+                                       </cursor></TextField>
+                                    <TextField fx:id="txtbreakDownTime" editable="false" layoutX="21.0" layoutY="77.0" prefHeight="25.0" prefWidth="119.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="156.0">
+                                       <effect>
+                                          <SepiaTone />
+                                       </effect>
+                                       <cursor>
+                                          <Cursor fx:constant="DISAPPEAR" />
+                                       </cursor></TextField>
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
@@ -103,9 +119,14 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <children>
-                                    <TextField layoutX="22.0" layoutY="14.0" prefHeight="25.0" prefWidth="121.0" />
-                                    <Button layoutX="132.0" layoutY="71.0" mnemonicParsing="false" prefWidth="75.0" text="View Fault" />
-                                    <Button layoutX="51.0" layoutY="71.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Mail" />
+                                    <TextField fx:id="txtCost" editable="false" layoutX="22.0" layoutY="14.0" prefHeight="25.0" prefWidth="121.0">
+                                       <effect>
+                                          <SepiaTone />
+                                       </effect>
+                                       <cursor>
+                                          <Cursor fx:constant="DISAPPEAR" />
+                                       </cursor></TextField>
+                                    <Button layoutX="167.0" layoutY="75.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Mail" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -124,9 +145,9 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                                  <children>
-                                    <TextField layoutX="21.0" layoutY="60.0" prefHeight="25.0" prefWidth="121.0" />
-                                    <TextField layoutX="21.0" layoutY="104.0" prefHeight="25.0" prefWidth="120.0" />
-                                    <Button layoutX="167.0" layoutY="104.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="Find" />
+                                    <Button fx:id="btnFindPercentage" layoutX="167.0" layoutY="104.0" mnemonicParsing="false" onMouseClicked="#btnFindPercentageReportClicked" prefHeight="25.0" prefWidth="69.0" text="Find" />
+                                    <DatePicker fx:id="dateFromPercentage" editable="false" layoutX="22.0" layoutY="60.0" prefHeight="25.0" prefWidth="119.0" />
+                                    <DatePicker fx:id="dateToPercentage" editable="false" layoutX="22.0" layoutY="104.0" prefHeight="25.0" prefWidth="119.0" />
                                  </children>
                               </AnchorPane>
                            </children>
@@ -162,46 +183,39 @@
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="297.0" layoutY="11.0" text="To">
+                              <Label layoutX="225.0" layoutY="11.0" text="To">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="103.0" layoutY="9.0" />
-                              <TextField layoutX="358.0" layoutY="9.0" />
-                              <Button layoutX="528.0" layoutY="9.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Find" />
+                              <Button fx:id="btnFindFaults" layoutX="423.0" layoutY="9.0" mnemonicParsing="false" onMouseClicked="#btnFindFaultsClicked" prefHeight="25.0" prefWidth="57.0" text="Find" />
+                              <DatePicker fx:id="dateFromFault" editable="false" layoutX="73.0" layoutY="9.0" prefHeight="25.0" prefWidth="123.0" />
+                              <DatePicker fx:id="dateToFault" editable="false" layoutX="266.0" layoutY="9.0" prefHeight="25.0" prefWidth="123.0" />
                            </children>
                         </AnchorPane>
                      </top>
                      <center>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #a7bbef;" BorderPane.alignment="CENTER">
-                           <top>
-                              <Label maxWidth="1.7976931348623157E308" text="Faults of Machine X OF ACF" BorderPane.alignment="CENTER">
-                                 <font>
-                                    <Font name="Verdana" size="18.0" />
-                                 </font>
-                              </Label>
-                           </top>
                            <center>
                               <TableView prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #a7bbef; -fx-border-color: #000000;" BorderPane.alignment="CENTER">
                                 <columns>
-                                  <TableColumn prefWidth="75.0" text="ID" />
-                                  <TableColumn maxWidth="10000.0" prefWidth="75.0" text="JOB" />
-                                    <TableColumn prefWidth="75.0" text="Date" />
-                                    <TableColumn prefWidth="75.0" text="Time" />
-                                    <TableColumn maxWidth="4000.0" prefWidth="123.0" text="Department">
+                                    <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
+                                  <TableColumn fx:id="job" maxWidth="10000.0" prefWidth="161.0" text="JOB" />
+                                    <TableColumn fx:id="date" prefWidth="63.0" text="Date" />
+                                    <TableColumn fx:id="time" prefWidth="58.0" text="Time" />
+                                    <TableColumn maxWidth="4000.0" prefWidth="128.0" text="Department">
                                        <columns>
-                                          <TableColumn prefWidth="75.0" text="Electrical" />
-                                          <TableColumn prefWidth="75.0" text="Mechanical" />
+                                          <TableColumn fx:id="isElectrical" prefWidth="75.0" text="Electrical" />
+                                          <TableColumn fx:id="isMechanical" prefWidth="75.0" text="Mechanical" />
                                        </columns>
                                     </TableColumn>
-                                    <TableColumn maxWidth="4000.0" prefWidth="130.0" text="Number of Workers">
+                                    <TableColumn maxWidth="4000.0" prefWidth="161.0" text="Number of Workers">
                                        <columns>
-                                          <TableColumn prefWidth="75.0" text="Electrical" />
-                                          <TableColumn prefWidth="75.0" text="Mechanical" />
+                                          <TableColumn fx:id="electricalWorkers" prefWidth="75.0" text="Electrical" />
+                                          <TableColumn fx:id="mechanicalWorkers" prefWidth="75.0" text="Mechanical" />
                                        </columns>
                                     </TableColumn>
-                                    <TableColumn prefWidth="87.0" text="Cost" />
+                                    <TableColumn fx:id="cost" prefWidth="72.0" text="Cost" />
                                 </columns>
                                  <columnResizePolicy>
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

@@ -5,13 +5,14 @@
  */
 package acl.cable.modal.comman;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author Eminda
  */
-public abstract class Employee {
+public abstract class Employee implements Serializable{
 
     /**
      * Employees can be uniquely identified by epfNo. But in the program we need

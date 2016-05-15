@@ -5,13 +5,14 @@
  */
 package acl.cable.modal.comman;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 /**
  *
  * @author Eminda
  */
-public class FaultReport {
+public class FaultReport implements Serializable{
     private Cost cost;
     private Calendar workerCompletionTime;
     private Calendar engineerCompletionTime;

@@ -6,13 +6,14 @@
 package acl.cable.modal.Report;
 
 import acl.cable.modal.comman.Factory;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Eminda
  */
-public class MonthlyReportDivision {
+public class MonthlyReportDivision implements Serializable{
     private ArrayList<MonthlyReportRecord> records=new ArrayList<>();
     private Factory factory;
 

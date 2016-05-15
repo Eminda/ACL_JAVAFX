@@ -6,68 +6,86 @@
 package acl.cable.modal.Report;
 
 import acl.cable.modal.comman.Machine;
+import java.io.Serializable;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.property.SimpleStringProperty;
 
 /**
  *
  * @author Eminda
  */
-public class MonthlyReportRecord {
-    private Machine machine;
-    private long totalTime;
-    private long electricalBreakdownTime;
-    private long mechanicalBreakdownTime;
-    private double electricalBreakDownPrecentage;
-    private double mechanicalBreakDownPrecentage;
+public class MonthlyReportRecord implements Serializable{
+    private SimpleIntegerProperty no;
+    private SimpleStringProperty machine;
+    private SimpleLongProperty totalTime;
+    private SimpleDoubleProperty totalBreakDownTime;
+    private SimpleDoubleProperty electricalBreakdownTime;
+    private SimpleDoubleProperty mechanicalBreakdownTime;
+    private SimpleDoubleProperty electricalBreakDownPrecentage;
+    private SimpleDoubleProperty mechanicalBreakDownPrecentage;
 
     public MonthlyReportRecord() {
     }
 
-    public Machine getMachine() {
-        return machine;
+    public String getMachine() {
+        return machine.get();
     }
 
-    public void setMachine(Machine machine) {
-        this.machine = machine;
+    public void setMachine(String machine) {
+        this.machine.set(machine);
     }
 
     public long getTotalTime() {
-        return totalTime;
+        return totalTime.get();
     }
 
     public void setTotalTime(long totalTime) {
-        this.totalTime = totalTime;
+        this.totalTime.set(totalTime);
     }
 
-    public long getElectricalBreakdownTime() {
-        return electricalBreakdownTime;
+    public double getElectricalBreakdownTime() {
+        return electricalBreakdownTime.get();
+    }
+    public double getTotalBreakDownTime(){
+        return totalBreakDownTime.get();
+    }
+    public void setTotalBreakDownTime(double totalBreakDownTime){
+        this.totalBreakDownTime.set(totalBreakDownTime);
     }
 
-    public void setElectricalBreakdownTime(long electricalBreakdownTime) {
-        this.electricalBreakdownTime = electricalBreakdownTime;
+    public void setElectricalBreakdownTime(double electricalBreakdownTime) {
+        this.electricalBreakdownTime.set(electricalBreakdownTime);
     }
 
-    public long getMechanicalBreakdownTime() {
-        return mechanicalBreakdownTime;
+    public double getMechanicalBreakdownTime() {
+        return mechanicalBreakdownTime.get();
     }
 
-    public void setMechanicalBreakdownTime(long mechanicalBreakdownTime) {
-        this.mechanicalBreakdownTime = mechanicalBreakdownTime;
+    public void setMechanicalBreakdownTime(double mechanicalBreakdownTime) {
+        this.mechanicalBreakdownTime.set(mechanicalBreakdownTime);
     }
 
     public double getElectricalBreakDownPrecentage() {
-        return electricalBreakDownPrecentage;
+        return electricalBreakDownPrecentage.get();
     }
 
     public void setElectricalBreakDownPrecentage(double electricalBreakDownPrecentage) {
-        this.electricalBreakDownPrecentage = electricalBreakDownPrecentage;
+        this.electricalBreakDownPrecentage.set(electricalBreakDownPrecentage);
     }
 
     public double getMechanicalBreakDownPrecentage() {
-        return mechanicalBreakDownPrecentage;
+        return mechanicalBreakDownPrecentage.get();
     }
 
     public void setMechanicalBreakDownPrecentage(double mechanicalBreakDownPrecentage) {
-        this.mechanicalBreakDownPrecentage = mechanicalBreakDownPrecentage;
+        this.mechanicalBreakDownPrecentage.set(mechanicalBreakDownPrecentage);
     }
-    
+    public int getNo(){
+        return no.get();
+    }
+    public void setNo(int no){
+        this.no.set(no);
+    }
 }

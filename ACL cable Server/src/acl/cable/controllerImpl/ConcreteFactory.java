@@ -46,7 +46,7 @@ public class ConcreteFactory extends UnicastRemoteObject implements Factory{
 
     @Override
     public ReportController getReportController() throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new ReportControllerImpl();
     }
     
 }

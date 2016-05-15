@@ -21,27 +21,33 @@
                   </Label>
                </top>
                <bottom>
-                  <AnchorPane prefHeight="104.0" prefWidth="726.0" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="123.0" prefWidth="726.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button layoutX="610.0" layoutY="57.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Find" />
-                        <Label layoutX="41.0" layoutY="20.0" text="Worker">
+                        <Button fx:id="btnFind" layoutX="589.0" layoutY="54.0" mnemonicParsing="false" onMouseClicked="#setReport" prefHeight="25.0" prefWidth="80.0" text="Find" />
+                        <Label layoutX="41.0" layoutY="17.0" text="Worker">
                            <font>
                               <Font name="Verdana" size="19.0" />
                            </font>
                         </Label>
-                        <ComboBox layoutX="163.0" layoutY="20.0" prefHeight="25.0" prefWidth="305.0" />
-                        <Label layoutX="41.0" layoutY="57.0" prefHeight="19.0" prefWidth="62.0" text="From">
+                        <ComboBox fx:id="comboWorker" editable="true" layoutX="163.0" layoutY="17.0" prefHeight="25.0" prefWidth="305.0" promptText="Select Worker" />
+                        <Label layoutX="41.0" layoutY="54.0" prefHeight="19.0" prefWidth="62.0" text="From">
                            <font>
                               <Font name="Verdana" size="19.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="163.0" layoutY="57.0" prefHeight="25.0" prefWidth="147.0" />
-                        <Label layoutX="332.0" layoutY="58.0" prefHeight="19.0" prefWidth="62.0" text="To">
+                        <Label layoutX="332.0" layoutY="55.0" prefHeight="19.0" prefWidth="62.0" text="To">
                            <font>
                               <Font name="Verdana" size="19.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="421.0" layoutY="58.0" prefHeight="25.0" prefWidth="147.0" />
+                        <DatePicker fx:id="from" editable="false" layoutX="162.0" layoutY="54.0" prefHeight="25.0" prefWidth="144.0" />
+                        <DatePicker fx:id="to" editable="false" layoutX="406.0" layoutY="55.0" prefHeight="25.0" prefWidth="144.0" />
+                        <Label layoutX="9.0" layoutY="98.0" prefHeight="17.0" prefWidth="450.0">
+                           <font>
+                              <Font name="Verdana" size="18.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="-7.0" layoutY="94.0" prefHeight="3.0" prefWidth="732.0" AnchorPane.leftAnchor="-7.0" AnchorPane.rightAnchor="1.0" />
                      </children>
                   </AnchorPane>
                </bottom>
@@ -69,8 +75,8 @@
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="233.0" layoutY="282.0" prefHeight="25.0" prefWidth="147.0" />
-                                    <TextField layoutX="232.0" layoutY="163.0" prefHeight="25.0" prefWidth="147.0" />
+                                    <TextField fx:id="txtDepartmentAssigns" layoutX="233.0" layoutY="282.0" prefHeight="25.0" prefWidth="147.0" />
+                                    <TextField fx:id="txtDepartmentTime" layoutX="232.0" layoutY="163.0" prefHeight="25.0" prefWidth="147.0" />
                                     <Label layoutX="14.0" layoutY="167.0" prefHeight="19.0" prefWidth="202.0" text="Total Department Time">
                                        <font>
                                           <Font size="13.0" />
@@ -81,8 +87,8 @@
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="233.0" layoutY="315.0" prefHeight="25.0" prefWidth="147.0" />
-                                    <TextField layoutX="232.0" layoutY="130.0" prefHeight="25.0" prefWidth="147.0" />
+                                    <TextField fx:id="txtWorkerAssigns" layoutX="233.0" layoutY="315.0" prefHeight="25.0" prefWidth="147.0" />
+                                    <TextField fx:id="txtWorkerTime" layoutX="232.0" layoutY="130.0" prefHeight="25.0" prefWidth="147.0" />
                                  </children>
                               </AnchorPane>
                            </right>
@@ -102,11 +108,12 @@
                            <center>
                               <TableView prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #a7bbef; -fx-border-color: #000000;" BorderPane.alignment="CENTER">
                                 <columns>
-                                  <TableColumn prefWidth="121.0" text="ID" />
-                                  <TableColumn prefWidth="29.0" text="Factory" />
-                                    <TableColumn prefWidth="75.0" text="Machine" />
-                                    <TableColumn prefWidth="75.0" text="JOB" />
-                                    <TableColumn prefWidth="75.0" text="Time(Hour)" />
+                                  <TableColumn fx:id="id" prefWidth="76.0" text="ID" />
+                                    <TableColumn fx:id="job" prefWidth="211.0" text="JOB" />
+                                    <TableColumn fx:id="date" prefWidth="81.0" text="Date" />
+                                    <TableColumn fx:id="time" prefWidth="76.0" text="Time" />
+                                  <TableColumn fx:id="factory" prefWidth="148.0" text="Factory" />
+                                    <TableColumn fx:id="machine" prefWidth="130.0" text="Machine" />
                                 </columns>
                                  <columnResizePolicy>
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -121,7 +128,7 @@
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="95.0" layoutY="4.0" prefHeight="17.0" prefWidth="127.0" text="Pushpakumara">
+                                    <Label fx:id="name" layoutX="95.0" layoutY="4.0" prefHeight="17.0" prefWidth="127.0" text="Pushpakumara">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
@@ -131,12 +138,12 @@
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="95.0" layoutY="29.0" prefHeight="17.0" prefWidth="127.0" text="23545">
+                                    <Label fx:id="epfNo" layoutX="95.0" layoutY="29.0" prefHeight="17.0" prefWidth="127.0" text="23545">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox layoutX="562.0" layoutY="19.0" prefHeight="25.0" prefWidth="162.0" promptText="Fault Reports Only" AnchorPane.rightAnchor="14.0" />
+                                    <ComboBox fx:id="comboChoose" layoutX="562.0" layoutY="19.0" onAction="#setTableAccordingToChoice" prefHeight="25.0" prefWidth="162.0" AnchorPane.rightAnchor="14.0" />
                                  </children>
                               </AnchorPane>
                            </top>

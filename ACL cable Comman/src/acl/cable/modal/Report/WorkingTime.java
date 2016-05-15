@@ -14,8 +14,8 @@ import java.util.Date;
  */
 public class WorkingTime implements Report{
     private Worker worker;
-    private Date from;
-    private Date to;
+    private long from;
+    private long to;
     private  WorkingTimeContribution contribution;
     private  WorkingTimePercentage percentage;
 
@@ -46,19 +46,19 @@ public class WorkingTime implements Report{
         this.worker = worker;
     }
 
-    public Date getFrom() {
+    public long getFrom() {
         return from;
     }
 
-    public void setFrom(Date from) {
+    public void setFrom(long from) {
         this.from = from;
     }
 
-    public Date getTo() {
+    public long getTo() {
         return to;
     }
 
-    public void setTo(Date to) {
+    public void setTo(long to) {
         this.to = to;
     }
     

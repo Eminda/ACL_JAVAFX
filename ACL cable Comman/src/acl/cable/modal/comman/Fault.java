@@ -5,6 +5,7 @@
  */
 package acl.cable.modal.comman;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -12,7 +13,7 @@ import java.util.Calendar;
  *
  * @author Eminda
  */
-public class Fault {
+public class Fault implements Serializable{
     public static final int LOW_PRIORITY=0;
     public static final int MED_PRIORITY=1;
     public static final int HIGH_PRIORITY=2;

@@ -5,11 +5,13 @@
  */
 package acl.cable.modal.Report;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Eminda
  */
-public class FaultPercentageCombination {
+public class FaultPercentageCombination implements Serializable{
     private int totalErrorHourEE;
     private int totalErrorHourME;
     private double percentageEE;

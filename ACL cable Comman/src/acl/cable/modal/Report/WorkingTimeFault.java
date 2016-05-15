@@ -5,13 +5,14 @@
  */
 package acl.cable.modal.Report;
 
+import java.io.Serializable;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
  *
  * @author Eminda
  */
-public class WorkingTimeFault {
+public class WorkingTimeFault implements Serializable{
     private final SimpleStringProperty id=new SimpleStringProperty("");
     private final SimpleStringProperty machine=new SimpleStringProperty("");
     private final SimpleStringProperty factory=new SimpleStringProperty("");

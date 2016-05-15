@@ -20,9 +20,9 @@ import java.util.logging.Logger;
 public class NewClass {
     public static void main(String[] args) {
         CostVerification costVerification=new CostVerification();
-        costVerification.setMachine(new Machine(34, "f", null));
-        costVerification.setFrom(new Date(1463066229644L));
-        costVerification.setTo(new Date(1423066229644L));
+        //costVerification.setMachine(new Machine(34, "f", null));
+//        costVerification.setFrom(new Date(1463066229644L));
+//        costVerification.setTo(new Date(1423066229644L));
         try {
             ReportDBAccess.getCostVerificationReport(costVerification);
         } catch (SQLException ex) {

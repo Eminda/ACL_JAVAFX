@@ -5,11 +5,13 @@
  */
 package acl.cable.modal.Report;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Eminda
  */
-public class WorkingTimePercentage {
+public class WorkingTimePercentage implements Serializable{
     private long workerTime;
     private long departmentTime;
     private int departmentAssings;

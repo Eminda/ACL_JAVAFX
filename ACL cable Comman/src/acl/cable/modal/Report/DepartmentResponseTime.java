@@ -7,13 +7,14 @@ package acl.cable.modal.Report;
 
 import acl.cable.modal.comman.Department;
 import acl.cable.modal.comman.Fault;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Eminda
  */
-public class DepartmentResponseTime {
+public class DepartmentResponseTime implements Serializable{
     private long averageResponseTime;
     private int responseLessThan10;
     private int responseLessThan20;

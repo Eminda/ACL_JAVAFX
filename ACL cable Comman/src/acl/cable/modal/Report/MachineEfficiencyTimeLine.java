@@ -5,6 +5,7 @@
  */
 package acl.cable.modal.Report;
 
+import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -12,7 +13,7 @@ import java.util.Map;
  *
  * @author Eminda
  */
-public class MachineEfficiencyTimeLine {
+public class MachineEfficiencyTimeLine implements Serializable,Report{
     private  Map<String,Integer> XYData=new LinkedHashMap<> ();
 
     public MachineEfficiencyTimeLine() {

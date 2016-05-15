@@ -6,12 +6,13 @@
 package acl.cable.modal.comman;
 
 import acl.cable.modal.Report.Report;
+import java.io.Serializable;
 
 /**
  *
  * @author Eminda
  */
-public class Mail {
+public class Mail implements Serializable{
     private Report attachedReport;
     private String body;
     private String subject;

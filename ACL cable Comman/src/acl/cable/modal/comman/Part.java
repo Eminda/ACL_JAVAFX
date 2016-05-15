@@ -5,11 +5,13 @@
  */
 package acl.cable.modal.comman;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Eminda
  */
-public class Part {
+public class Part implements Serializable{
     private String PID;
     private String name;
     private double value;

@@ -8,11 +8,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="662.0" prefWidth="801.0" style="-fx-background-color: #a7bbef;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="acl.cable.CostVerificationController">
+<AnchorPane id="AnchorPane" prefHeight="662.0" prefWidth="820.0" style="-fx-background-color: #a7bbef;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="acl.cable.CostVerificationController">
    <children>
       <BorderPane prefHeight="484.0" prefWidth="699.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <BorderPane prefHeight="198.0" prefWidth="739.0" BorderPane.alignment="CENTER">
+            <BorderPane prefHeight="150.0" prefWidth="820.0" BorderPane.alignment="CENTER">
                <top>
                   <Label maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="298.0" style="-fx-background-color: #7290db;" text="COST VERIFICATION" BorderPane.alignment="CENTER">
                      <font>
@@ -24,51 +24,43 @@
                   <AnchorPane />
                </bottom>
                <center>
-                  <AnchorPane prefHeight="195.0" prefWidth="801.0" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="195.0" prefWidth="820.0" BorderPane.alignment="CENTER">
                      <children>
                         <Label layoutX="39.0" layoutY="14.0" text="Division">
                            <font>
                               <Font size="15.0" />
                            </font></Label>
-                        <Button layoutX="303.0" layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Find" />
-                        <ComboBox layoutX="149.0" layoutY="12.0" prefHeight="25.0" prefWidth="211.0" />
+                        <Button fx:id="btnFind" layoutX="730.0" layoutY="51.0" mnemonicParsing="false" onMouseClicked="#btnFindClicked" prefHeight="25.0" prefWidth="79.0" text="Find" />
+                        <ComboBox fx:id="comboDiv" editable="true" layoutX="149.0" layoutY="12.0" prefHeight="25.0" prefWidth="211.0" promptText="Select Division" />
                         <Label layoutX="39.0" layoutY="53.0" text="From">
                            <font>
                               <Font size="15.0" />
-                           </font></Label>
-                        <Label layoutX="59.0" layoutY="138.0" text="Total Cost">
-                           <font>
-                              <Font name="System Bold" size="17.0" />
                            </font></Label>
                         <Label layoutX="401.0" layoutY="53.0" prefHeight="21.0" prefWidth="24.0" text="To">
                            <font>
                               <Font size="15.0" />
                            </font></Label>
-                        <TextField layoutX="149.0" layoutY="51.0" prefHeight="25.0" prefWidth="140.0" />
-                        <TextField layoutX="511.0" layoutY="51.0" prefHeight="25.0" prefWidth="140.0" />
-                        <Separator layoutY="128.0" prefHeight="0.0" prefWidth="801.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                        <Label layoutX="149.0" layoutY="138.0" prefHeight="17.0" prefWidth="140.0" text="3500">
+                        <Separator layoutX="3.0" layoutY="91.0" prefHeight="0.0" prefWidth="801.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="-3.0" />
+                        <Label fx:id="lblCost" alignment="CENTER" layoutY="108.0" prefHeight="26.0" prefWidth="820.0" text="Machine X of Factoy 1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                            <font>
                               <Font name="System Bold" size="17.0" />
                            </font></Label>
-                        <Button layoutX="223.0" layoutY="88.0" mnemonicParsing="false" text="Set Filter" />
-                        <Separator layoutX="-2.0" layoutY="169.0" prefHeight="0.0" prefWidth="801.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <Separator layoutX="3.0" layoutY="144.0" prefHeight="4.0" prefWidth="820.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="-3.0" />
                         <Label layoutX="401.0" layoutY="14.0" text="Machine">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <ComboBox layoutX="511.0" layoutY="12.0" prefHeight="25.0" prefWidth="211.0" />
+                        <ComboBox fx:id="comboMachine" editable="true" layoutX="511.0" layoutY="12.0" prefHeight="25.0" prefWidth="211.0" promptText="Select Machine" />
+                        <DatePicker fx:id="from" editable="false" layoutX="149.0" layoutY="51.0" prefHeight="25.0" prefWidth="145.0" />
+                        <DatePicker fx:id="to" editable="false" layoutX="511.0" layoutY="51.0" prefHeight="25.0" prefWidth="145.0" />
                      </children>
                   </AnchorPane>
                </center>
             </BorderPane>
          </top>
-         <center>
-            <PieChart fx:id="pieChart" BorderPane.alignment="CENTER" />
-         </center>
          <right>
-            <AnchorPane prefHeight="463.0" prefWidth="411.0" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="484.0" prefWidth="359.0" BorderPane.alignment="CENTER">
                <children>
                   <Label layoutX="22.0" layoutY="29.0" text="Total Breakdown Time">
                      <font>
@@ -100,15 +92,30 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="195.0" layoutY="27.0" />
-                  <TextField layoutX="195.0" layoutY="96.0" />
-                  <TextField layoutX="195.0" layoutY="133.0" />
-                  <TextField layoutX="197.0" layoutY="255.0" prefHeight="25.0" prefWidth="135.0" />
-                  <TextField layoutX="197.0" layoutY="312.0" prefHeight="25.0" prefWidth="135.0" />
-                  <TextField layoutX="197.0" layoutY="348.0" prefHeight="25.0" prefWidth="135.0" />
+                  <TextField fx:id="totalBreakDown" layoutX="195.0" layoutY="27.0" />
+                  <TextField fx:id="electricalBreakDown" layoutX="195.0" layoutY="96.0" />
+                  <TextField fx:id="mechanicalBreakDown" layoutX="195.0" layoutY="133.0" />
+                  <TextField fx:id="cost" layoutX="197.0" layoutY="255.0" prefHeight="25.0" prefWidth="135.0" />
+                  <TextField fx:id="electricalCost" layoutX="197.0" layoutY="312.0" prefHeight="25.0" prefWidth="135.0" />
+                  <TextField fx:id="mechanicalCost" layoutX="197.0" layoutY="348.0" prefHeight="25.0" prefWidth="135.0" />
                </children>
             </AnchorPane>
          </right>
+         <center>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <PieChart />
+                  <PieChart GridPane.columnIndex="1" />
+               </children>
+            </GridPane>
+         </center>
       </BorderPane>
    </children>
 </AnchorPane>

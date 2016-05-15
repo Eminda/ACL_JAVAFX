@@ -5,6 +5,7 @@
  */
 package acl.cable.modal.comman;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -13,7 +14,7 @@ import java.util.HashMap;
  *
  * @author Eminda
  */
-public class Cost {
+public class Cost implements Serializable{
 
     private ArrayList<Part> parts = new ArrayList<>();
     private Engineer assignedEngineer;

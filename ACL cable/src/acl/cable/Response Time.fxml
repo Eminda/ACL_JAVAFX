@@ -28,7 +28,7 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutY="40.0" prefHeight="21.0" prefWidth="375.0" text="Average Response Time :" AnchorPane.leftAnchor="0.0">
+                        <Label fx:id="responseTimeElectrical" alignment="CENTER" layoutY="40.0" prefHeight="21.0" prefWidth="375.0" text="Average Response Time :" AnchorPane.leftAnchor="0.0">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -49,7 +49,7 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutY="40.0" prefHeight="21.0" prefWidth="374.0" text="Average Response Time :">
+                        <Label fx:id="responseTimeMechanical" alignment="CENTER" layoutY="40.0" prefHeight="21.0" prefWidth="374.0" text="Average Response Time :">
                            <font>
                               <Font size="15.0" />
                            </font>

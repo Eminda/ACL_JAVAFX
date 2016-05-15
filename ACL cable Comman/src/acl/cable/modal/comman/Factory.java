@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author Eminda
  */
 public class Factory implements Division{
+    private int DIID;
     private String name;
     private String shortName;
     private int numberOfMachines;
@@ -25,11 +26,31 @@ public class Factory implements Division{
         this.shortName = shortName;
     }
 
+    public int getDIID() {
+        return DIID;
+    }
+
+    public void setDIID(int DIID) {
+        this.DIID = DIID;
+    }
+
     /**
      * @return the name
      */
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setShortName(String shortName) {
+        this.shortName = shortName;
+    }
+
+    public void setNumberOfMachines(int numberOfMachines) {
+        this.numberOfMachines = numberOfMachines;
     }
 
     /**
@@ -40,15 +61,16 @@ public class Factory implements Division{
     }
     
     public void setMachines(ArrayList<Machine> machines){
-        
+        this.machines=machines;
     }
     public ArrayList<Machine> getMachines(){
-        throw new RuntimeException();
+        return machines;
     }
-    public Machine checkAndGetMachineByName(String name){
-        throw new RuntimeException();
-    }
+
     public int getNumberOfMachines(){
-        throw new RuntimeException();
+        return machines.size();
+    }
+    public void addMachine(Machine machine){
+        this.machines.add(machine);
     }
 }

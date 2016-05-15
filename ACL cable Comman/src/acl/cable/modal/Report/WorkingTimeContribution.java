@@ -5,14 +5,14 @@
  */
 package acl.cable.modal.Report;
 
-import acl.cable.modal.comman.Fault;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Eminda
  */
-public class WorkingTimeContribution {
+public class WorkingTimeContribution implements Serializable{
     public static final int ALL=0;
     public static final int FAULTS_ONLY=1;
     public static final int MAINTENANCE_ONLY=2;
@@ -43,9 +43,7 @@ public class WorkingTimeContribution {
     public void setAllFaults(ArrayList<WorkingTimeFault> faults){
         this.faults=faults;
     }
-    public ArrayList<WorkingTimeFault> getAllFaults(){
-        return faults;
-    }
+
     public WorkingTimeFault getFault(int index){
         if(index>0 && faults.size()>index){
             return faults.get(index);
