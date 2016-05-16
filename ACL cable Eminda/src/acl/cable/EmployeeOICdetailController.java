@@ -101,29 +101,38 @@ public class EmployeeOICdetailController implements Initializable {
     }
      @FXML
     public void NICKeyRelesed(){
+        int length = engNic.getText().length();
         int pos =engNic.getCaretPosition();
         ValidateEmployee.validateNic(engNic);
-        if(engNic.getText().length()>pos) engNic.positionCaret(pos); else
+        if(engNic.getText().length()==length)engNic.positionCaret(pos);
+        else if(engNic.getText().length()>pos) engNic.positionCaret(pos-1); else
         engNic.positionCaret(engNic.getText().length());
     }
     public void EPFKeyRelesed(){
+        int length = engEpfno.getText().length();
         int pos =engEpfno.getCaretPosition();
         ValidateEmployee.validateFEpf(engEpfno);
-        if(engEpfno.getText().length()>pos) engEpfno.positionCaret(pos);else 
+        if(engEpfno.getText().length()==length)engEpfno.positionCaret(pos);
+        else if(engEpfno.getText().length()>pos) engEpfno.positionCaret(pos-1);else 
         engEpfno.positionCaret(engEpfno.getText().length());
     }
     
     @FXML public void NameKeyReleased(){
+        int length = engName.getText().length();
         int pos =engName.getCaretPosition();
         ValidateEmployee.validateFname(engName);
-        if(engName.getText().length()>pos) engName.positionCaret(pos);else 
+        if(engName.getText().length()==length)engName.positionCaret(pos);
+        else if(engName.getText().length()==length)engName.positionCaret(pos);
+        else if(engName.getText().length()>pos) engName.positionCaret(pos-1);else 
         engName.positionCaret(engName.getText().length());
     }
     
     @FXML public void PrefNameKeyReleased(){
+        int length = engPrefName.getText().length();
         int pos =engPrefName.getCaretPosition();
         ValidateEmployee.validateFpref(engPrefName);
-        if(engPrefName.getText().length()>pos) engPrefName.positionCaret(pos);else 
+        if(engPrefName.getText().length()==length)engPrefName.positionCaret(pos);
+        else if(engPrefName.getText().length()>pos) engPrefName.positionCaret(pos-1);else 
         engPrefName.positionCaret(engPrefName.getText().length());
     }
     @FXML

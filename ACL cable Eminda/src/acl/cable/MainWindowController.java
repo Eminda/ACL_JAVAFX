@@ -5,6 +5,9 @@
  */
 package acl.cable;
 
+import acl.cable.modal.comman.ElectricalDepartment;
+import acl.cable.modal.comman.Employee;
+import acl.cable.modal.comman.Engineer;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,6 +29,21 @@ import javafx.scene.layout.BorderPane;
  * @author Eminda
  */
 public class MainWindowController implements Initializable {
+    public static ElectricalDepartment elect = new ElectricalDepartment();
+    
+    public static Engineer loggUser = new Engineer("", "1199", "Isham Mohamed",null);
+    
+    
+
+    public static Employee getLoggUser() {
+        
+        return loggUser;
+    }
+
+//    public static void setLoggUser(Employee loggUser) {
+//        MainWindowController.loggUser = (Engineer) loggUser;
+//    }
+    
     public static MainWindowController controller;
     @FXML
     private Label label;
@@ -44,6 +62,10 @@ public class MainWindowController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        loggUser.setNIC("942610340V");
+        loggUser.setPreferedName("Isham123");
+        loggUser.setDepartment(elect);
+        elect.setName("Electrical");
         controller=this;
         setMainWindowControl2();
     }    

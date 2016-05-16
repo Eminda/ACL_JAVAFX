@@ -14,6 +14,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
@@ -27,6 +29,12 @@ public class EmployeeMeController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
+    @FXML private Button conform;
+    @FXML private Button canlcel;
+    @FXML PasswordField newP;
+    @FXML PasswordField newAP;
+    @FXML PasswordField oldP;
     @FXML
     private BorderPane borderPaneEmployee;
     @FXML AnchorPane passwordPane;
@@ -40,14 +48,22 @@ public class EmployeeMeController implements Initializable {
     }    
 
     private void setEmployeePanel() throws IOException {
-        FXMLLoader fx=new FXMLLoader(getClass().getClassLoader().getResource("EmployeeEngineerDetail.fxml"));
+        FXMLLoader fx=new FXMLLoader(getClass().getClassLoader().getResource("EmployeeViewMe.fxml"));
         fx.setBuilderFactory(new JavaFXBuilderFactory());
-        AnchorPane pane=(AnchorPane)fx.load(getClass().getResource("EmployeeEngineerDetail.fxml").openStream());
-        fx.<EmployeeEngineerDetailController>getController().setButtonPane(false, false,true);
+        AnchorPane pane=(AnchorPane)fx.load(getClass().getResource("EmployeeViewMe.fxml").openStream());
+        fx.<EmployeeViewMeController>getController().init(this);
         borderPaneEmployee.setCenter(pane);
+        passwordPane.setVisible(false);
     }
     
     public void visiblePassword(){
         passwordPane.setVisible(true);
+    }
+    @FXML public void hidePassword(){
+        
+        newP.clear();
+        newAP.clear();
+        oldP.clear();
+        passwordPane.setVisible(false);
     }
 }

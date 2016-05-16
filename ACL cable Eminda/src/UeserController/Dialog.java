@@ -62,4 +62,15 @@ alert.setContentText(null);
 
 alert.showAndWait();
     }
+     public static void showSuccessEdit(Employee emp){
+        Alert alert = new Alert(AlertType.INFORMATION);
+alert.setTitle("Success");
+String Massege = "Your profile has successfuly edited as  \nName - "+emp.getName()+"\nUserName - "+emp.getPreferedName()+"\nNIC - "+emp.getNIC()+"\nEPF Number - "+emp.getEpfId()+" ";
+
+alert.setHeaderText(Massege);
+alert.setContentText(null);
+
+alert.showAndWait();
+    }
+     
 }

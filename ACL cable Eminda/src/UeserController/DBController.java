@@ -50,4 +50,8 @@ public class DBController {
         return lm.getRetiredEmployee(val, name, nic, Epf);
         
     }
+    
+    public boolean editprofile(Employee emp) throws RemoteException{
+        return ctrl.updateEmployee(emp);
+    }
 }
