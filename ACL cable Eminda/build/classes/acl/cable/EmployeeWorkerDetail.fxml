@@ -94,7 +94,7 @@
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <children>
-                  <TextField layoutY="21.0" />
+                  <TextField layoutY="21.0" visible="false" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
@@ -105,7 +105,7 @@
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5">
                <children>
-                  <Label layoutX="7.0" layoutY="18.0" prefHeight="17.0" prefWidth="180.0" text="Status">
+                  <Label layoutX="7.0" layoutY="18.0" prefHeight="17.0" prefWidth="180.0" text="Status" visible="false">
                      <font>
                         <Font size="16.0" />
                      </font>

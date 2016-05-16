@@ -5,6 +5,7 @@
  */
 package UeserController;
 
+import acl.cable.modal.comman.Employee;
 import com.sun.javafx.scene.control.skin.DatePickerContent;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -46,6 +47,17 @@ public class Dialog {
         Alert alert = new Alert(AlertType.ERROR);
 alert.setTitle("ERROR");
 alert.setHeaderText(massege);
+alert.setContentText(null);
+
+alert.showAndWait();
+    }
+    
+     public static void showSuccess(Employee emp){
+        Alert alert = new Alert(AlertType.INFORMATION);
+alert.setTitle("Success");
+String Massege = "The employee has successfuly added \nName - "+emp.getName()+"\nUserName - "+emp.getPreferedName()+"\nNIC - "+emp.getNIC()+"\nEPF Number - "+emp.getEpfId()+" ";
+
+alert.setHeaderText(Massege);
 alert.setContentText(null);
 
 alert.showAndWait();

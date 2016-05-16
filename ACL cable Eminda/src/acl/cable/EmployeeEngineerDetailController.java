@@ -7,6 +7,7 @@ package acl.cable;
 
 import ACL_serverAccess.ServerAccess;
 import UeserController.DBController;
+import UeserController.Dialog;
 import UeserController.ValidateEmployee;
 import acl.cable.modal.comman.ElectricalDepartment;
 import acl.cable.modal.comman.Engineer;
@@ -90,7 +91,9 @@ public class EmployeeEngineerDetailController implements Initializable {
         
         noFaultAtPref=ValidateEmployee.validatePref(prefName, engPrefName);
         noFaultAtNic=ValidateEmployee.validateNic(nic, engNic);
-        if(noFaultAtEpf&&noFaultAtNic&&noFaultAtPref&&noFaultAtname) new DBController().addEmployee(eng);
+        if(noFaultAtEpf&&noFaultAtNic&&noFaultAtPref&&noFaultAtname){ new DBController().addEmployee(eng);Dialog.showSuccess(eng);
+        clear();
+        }
     
     }
     @FXML
@@ -152,6 +155,16 @@ public class EmployeeEngineerDetailController implements Initializable {
         engName.setStyle(null);
         noFaultAtname=true;
         }}
+    
+    
+    
+    private void clear(){
+        engEpfno.setText("");
+        engName.setText("");
+        engNic.setText("");
+        engPrefName.setText("");
+    }
+    
     } 
     
 

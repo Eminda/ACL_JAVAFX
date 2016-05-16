@@ -195,11 +195,12 @@ public class EmployeeDBAccess {
     public ResultSet getResignedEmployee(int val,String name,String nic , String epf) throws SQLException, ClassNotFoundException{
         String sql;
         if (val==1){
-            sql = "select name,preferedname,nic,epfnoEng,resignedate,did from engineer where name like '"+name+"%' and nic like '"+nic+"' and epf like '"+epf+"' and isresigned!=0";
+            //System.out.println("sql");
+            sql = "select name,preferedname,nic,epfnoEng,resignedate,did from engineer where name like '"+name+"%' and nic like '"+nic+"%' and epfnoEng like '"+epf+"%' and isresigned=1";
         }else if (val==2){
-            sql = "select name,preferedname,nic,epfnooic,resignedate,diid from oic where name like '"+name+"%' and nic like '"+nic+"' and epf like '"+epf+"' and isresigned!=0";
+            sql = "select name,preferedname,nic,epfnooic,resignedate,diid from oic where name like '"+name+"%' and nic like '"+nic+"%' and epfnoOIC like '"+epf+"%' and isresigned!=0";
         }else if (val==3){
-            sql = "select name,preferedname,nic,epfnowkr,resignedate,did from worker where name like '"+name+"%' and nic like '"+nic+"' and epf like '"+epf+"' and isresigned!=0";
+            sql = "select name,preferedname,nic,epfnowkr,resignedate,did from worker where name like '"+name+"%' and nic like '"+nic+"%' and epfnoWkr like '"+epf+"%' and isresigned!=0";
         }else return null;
         Connection conn = DBConnectionForClient.getConnection();
         Statement stm = conn.createStatement();

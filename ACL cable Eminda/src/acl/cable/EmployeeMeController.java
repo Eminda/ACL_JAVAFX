@@ -29,6 +29,7 @@ public class EmployeeMeController implements Initializable {
      */
     @FXML
     private BorderPane borderPaneEmployee;
+    @FXML AnchorPane passwordPane;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -46,4 +47,7 @@ public class EmployeeMeController implements Initializable {
         borderPaneEmployee.setCenter(pane);
     }
     
+    public void visiblePassword(){
+        passwordPane.setVisible(true);
+    }
 }

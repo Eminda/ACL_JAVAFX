@@ -43,4 +43,11 @@ public class DBController {
     public ArrayList<EmployeeTable> getfliteredEmployee(int val2){
         return lm.filter(val2);
     }
+    
+    public ArrayList<ResignedEmployee> getretiredEmployee(int val , String name, String nic , String Epf) throws RemoteException{
+      lm = new ListMaker(ctrl);
+       // System.out.println("try 3");
+        return lm.getRetiredEmployee(val, name, nic, Epf);
+        
+    }
 }

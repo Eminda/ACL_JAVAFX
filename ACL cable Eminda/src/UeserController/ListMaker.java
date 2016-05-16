@@ -20,14 +20,25 @@ public class ListMaker {
     
     
     
-    public ArrayList<RetiredEmployee> getRetiredEmployee(int val , String name, String nic , String Epf ) throws RemoteException{
+    public ArrayList<ResignedEmployee> getRetiredEmployee(int val , String name, String nic , String Epf ) throws RemoteException{
+        if (val==0)return getAllResignedEmployee(name, nic, Epf);else{
         ArrayList<ArrayList<String>> list = ctrl.getResignedEmployee(val, name, nic, Epf);
-        ArrayList<RetiredEmployee> temp = new ArrayList<RetiredEmployee>();
-        for (ArrayList<String> list1 : list) {RetiredEmployee re = new RetiredEmployee(list1.get(0), list1.get(1),list1.get(2),list1.get(3),Long.parseLong(list1.get(4)), list1.get(5));}
-        return temp;
+        ArrayList<ResignedEmployee> temp = new ArrayList<ResignedEmployee>();
+        for (ArrayList<String> list1 : list) {ResignedEmployee re = new ResignedEmployee(list1.get(0), list1.get(1),list1.get(2),list1.get(3),Long.parseLong(list1.get(4)), list1.get(5));
+        temp.add(re);
+            System.out.println(re.geResignedDate());
+        
+        }
+        return temp;}
     }
     
-    
+    private ArrayList<ResignedEmployee> getAllResignedEmployee(String name, String nic , String Epf ) throws RemoteException{
+        ArrayList<ResignedEmployee> temp = new ArrayList<ResignedEmployee>();
+        temp.addAll(getRetiredEmployee(1, name, nic, Epf));
+        temp.addAll(getRetiredEmployee(2, name, nic, Epf));
+        temp.addAll(getRetiredEmployee(3, name, nic, Epf));
+        return temp;
+    }
     
     
    
@@ -38,7 +49,7 @@ public class ListMaker {
         for (ArrayList<String> list1 : list) {
             EmployeeTable emp = new EmployeeTable(list1.get(0), list1.get(1), list1.get(2),list1.get(3),list1.get(4),list1.get(5));
             ListMaker.employees.add(emp);
-            System.out.println(emp.getName());
+            System.out.println(emp.getPhoto());
         }
         return this.employees;
         
@@ -50,6 +61,7 @@ public class ListMaker {
         for (ArrayList<String> list1 : list) {
             EmployeeTable emp = new EmployeeTable(list1.get(0), list1.get(1), list1.get(2),list1.get(3),list1.get(4),list1.get(5));
             ListMaker.employees.add(emp);
+            
         }
         return this.employees;
         

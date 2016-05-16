@@ -6,6 +6,7 @@
 package acl.cable;
 
 import UeserController.DBController;
+import UeserController.Dialog;
 import UeserController.ValidateEmployee;
 import acl.cable.modal.comman.CCF;
 import acl.cable.modal.comman.Department;
@@ -92,7 +93,10 @@ public class EmployeeOICdetailController implements Initializable {
         noFaultAtEpf=ValidateEmployee.validateEpf(EpfNo, engEpfno);
         noFaultAtNic=ValidateEmployee.validateNic(nic, engNic);
         noFaultAtPref=ValidateEmployee.validatePref(prefName, engPrefName);
-        if(noFaultAtEpf&&noFaultAtNic&&noFaultAtPref&&noFaultAtname) new DBController().addEmployee(eng);
+        if(noFaultAtEpf&&noFaultAtNic&&noFaultAtPref&&noFaultAtname) {new DBController().addEmployee(eng);
+            Dialog.showSuccess(eng);
+            clear();
+        }
     
     }
      @FXML
@@ -154,6 +158,15 @@ public class EmployeeOICdetailController implements Initializable {
         engName.setStyle(null);
         noFaultAtname=true;
         }}
+    
+    
+    private void clear(){
+        engEpfno.setText("");
+        engName.setText("");
+        engNic.setText("");
+        engPrefName.setText("");
+    }
+    
     } 
     
 

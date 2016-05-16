@@ -51,14 +51,7 @@ public class EmployeeCurrentController implements Initializable {
     @FXML Label Division;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        /*try {
-            this.makeList();
-        } catch (RemoteException ex) {
-            Logger.getLogger(EmployeeCurrentController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NotBoundException ex) {
-            Logger.getLogger(EmployeeCurrentController.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+      
     }
     public void init(){
         System.out.println("init is called");
