@@ -48,10 +48,10 @@ public class EmployeeControllerImpl extends UnicastRemoteObject implements Emplo
     }
 
     @Override
-    public boolean updateEmployee(Employee employee) throws RemoteException{
+    public boolean updateEmployee(Employee employee,String oldEpf) throws RemoteException{
         try {
             System.out.println("asdff");
-            return db.updateEmployee(employee);
+            return db.updateEmployee(employee,oldEpf);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(EmployeeControllerImpl.class.getName()).log(Level.SEVERE, null, ex);
             return false;

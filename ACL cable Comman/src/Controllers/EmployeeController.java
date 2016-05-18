@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 public interface EmployeeController extends Remote {
     String addEmployee (Employee employee) throws RemoteException;
-    boolean updateEmployee(Employee employee)throws RemoteException;
+    boolean updateEmployee(Employee employee,String oldEpf)throws RemoteException;
     boolean updateEmployeePassword(Employee employee)throws RemoteException;
     ArrayList<ArrayList<String>> getEmployee(int val)throws RemoteException;
     ArrayList<ArrayList<String>> getResignedEmployee(int val ,String name , String nic , String epf)throws RemoteException;

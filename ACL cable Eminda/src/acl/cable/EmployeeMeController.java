@@ -5,6 +5,7 @@
  */
 package acl.cable;
 
+import acl.cable.modal.comman.Employee;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -38,16 +39,18 @@ public class EmployeeMeController implements Initializable {
     @FXML
     private BorderPane borderPaneEmployee;
     @FXML AnchorPane passwordPane;
+    //public static boolean edit=false;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
             setEmployeePanel();
+            
         } catch (IOException ex) {
             Logger.getLogger(EmployeeMeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }    
 
-    private void setEmployeePanel() throws IOException {
+    public void setEmployeePanel() throws IOException {
         FXMLLoader fx=new FXMLLoader(getClass().getClassLoader().getResource("EmployeeViewMe.fxml"));
         fx.setBuilderFactory(new JavaFXBuilderFactory());
         AnchorPane pane=(AnchorPane)fx.load(getClass().getResource("EmployeeViewMe.fxml").openStream());
@@ -64,6 +67,15 @@ public class EmployeeMeController implements Initializable {
         newP.clear();
         newAP.clear();
         oldP.clear();
+        passwordPane.setVisible(false);
+    }
+    
+    public void setCurentEditin(Employee emp) throws IOException{
+         FXMLLoader fx=new FXMLLoader(getClass().getClassLoader().getResource("EmployeeCurrentEditController.fxml"));
+        fx.setBuilderFactory(new JavaFXBuilderFactory());
+        AnchorPane pane=(AnchorPane)fx.load(getClass().getResource("EmployeeCurrentEditController.fxml").openStream());
+        fx.<EmployeeCurrentEditController>getController().moreDetails(emp);
+        borderPaneEmployee.setCenter(pane);
         passwordPane.setVisible(false);
     }
 }

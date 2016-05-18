@@ -27,7 +27,7 @@ public class ACL_Cables extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindow.fxml"));
-        //Parent root = FXMLLoader.load(getClass().getResource("EmployeeCurrent.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("EmployeeCurrentEdit.fxml"));
 
         Scene scene = new Scene(root);
 

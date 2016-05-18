@@ -24,9 +24,9 @@ public class ListMaker {
         if (val==0)return getAllResignedEmployee(name, nic, Epf);else{
         ArrayList<ArrayList<String>> list = ctrl.getResignedEmployee(val, name, nic, Epf);
         ArrayList<ResignedEmployee> temp = new ArrayList<ResignedEmployee>();
-        for (ArrayList<String> list1 : list) {ResignedEmployee re = new ResignedEmployee(list1.get(0), list1.get(1),list1.get(2),list1.get(3),Long.parseLong(list1.get(4)), list1.get(5));
+        for (ArrayList<String> list1 : list) {ResignedEmployee re = new ResignedEmployee(list1.get(0), list1.get(1),list1.get(2),list1.get(3),DateConverter.getSDate(list1.get(4)), list1.get(5));
         temp.add(re);
-            System.out.println(re.geResignedDate());
+            System.out.println(re.getResigneddate());
         
         }
         return temp;}
@@ -47,7 +47,7 @@ public class ListMaker {
         ListMaker.employees = new ArrayList<>();
         ArrayList<ArrayList<String>> list =this.getListCurrentEng();
         for (ArrayList<String> list1 : list) {
-            EmployeeTable emp = new EmployeeTable(list1.get(0), list1.get(1), list1.get(2),list1.get(3),list1.get(4),list1.get(5));
+            EmployeeTable emp = new EmployeeTable(list1.get(0), list1.get(1), list1.get(2),list1.get(3),list1.get(4),list1.get(5),list1.get(6));
             ListMaker.employees.add(emp);
             System.out.println(emp.getPhoto());
         }
@@ -59,7 +59,7 @@ public class ListMaker {
          ListMaker.employees = new ArrayList<>();
         ArrayList<ArrayList<String>> list =this.getListCurrentOIC();
         for (ArrayList<String> list1 : list) {
-            EmployeeTable emp = new EmployeeTable(list1.get(0), list1.get(1), list1.get(2),list1.get(3),list1.get(4),list1.get(5));
+            EmployeeTable emp = new EmployeeTable(list1.get(0), list1.get(1), list1.get(2),list1.get(3),list1.get(4),list1.get(5),list1.get(6));
             ListMaker.employees.add(emp);
             
         }
@@ -71,7 +71,7 @@ public class ListMaker {
          ListMaker.employees = new ArrayList<>();
         ArrayList<ArrayList<String>> list =this.getListCurrentWkr();
         for (ArrayList<String> list1 : list) {
-            EmployeeTable emp = new EmployeeTable(list1.get(0), list1.get(1), list1.get(2),list1.get(3),list1.get(4),list1.get(5));
+            EmployeeTable emp = new EmployeeTable(list1.get(0), list1.get(1), list1.get(2),list1.get(3),list1.get(4),list1.get(5),list1.get(6));
             ListMaker.employees.add(emp);
         }
         return this.employees;
@@ -82,7 +82,7 @@ public class ListMaker {
          ListMaker.employees = new ArrayList<>();
         ArrayList<ArrayList<String>> list =this.getListCurrentAll();
         for (ArrayList<String> list1 : list) {
-            EmployeeTable emp = new EmployeeTable(list1.get(0), list1.get(1), list1.get(2),list1.get(3),list1.get(4),list1.get(5));
+            EmployeeTable emp = new EmployeeTable(list1.get(0), list1.get(1), list1.get(2),list1.get(3),list1.get(4),list1.get(5),list1.get(6));
             ListMaker.employees.add(emp);
         }
         return this.employees;
@@ -110,14 +110,23 @@ public class ListMaker {
     }
     public ArrayList<ArrayList<String>> getListCurrentEng() throws RemoteException{
         ArrayList<ArrayList<String>> list=ctrl.getEmployee(1);
+        for (ArrayList<String> list1 : list) {
+            list1.add("Engineer");
+        }
         return list;
     }
     public ArrayList<ArrayList<String>> getListCurrentOIC() throws RemoteException{
         ArrayList<ArrayList<String>> list=ctrl.getEmployee(2);
+        for (ArrayList<String> list1 : list) {
+            list1.add("OIC");
+        }
         return list;
     }
     public ArrayList<ArrayList<String>> getListCurrentWkr() throws RemoteException{
         ArrayList<ArrayList<String>> list=ctrl.getEmployee(3);
+        for (ArrayList<String> list1 : list) {
+            list1.add("wkr");
+        }
         return list;
     }
      

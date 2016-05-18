@@ -17,14 +17,14 @@ public class ResignedEmployee {
     final private SimpleStringProperty prefName;
     final private SimpleStringProperty nic;
     final private SimpleStringProperty epfno;
-    final private SimpleLongProperty resignedDate;
+    final private SimpleStringProperty resigneddate;
     final private String did;
-     public ResignedEmployee(String name, String prefName, String nic, String epfno, Long resignedDate,String did) {
+     public ResignedEmployee(String name, String prefName, String nic, String epfno, String resigneddate,String did) {
         this.name =new SimpleStringProperty(name);
         this.prefName = new SimpleStringProperty(prefName);
         this.nic = new SimpleStringProperty(nic);
         this.epfno = new SimpleStringProperty(epfno);
-        this.resignedDate = new SimpleLongProperty(resignedDate);
+        this.resigneddate = new SimpleStringProperty(resigneddate);
         this.did = did;
      }
      
@@ -44,8 +44,8 @@ public class ResignedEmployee {
         return epfno.get();
     }
 
-    public Long geResignedDate() {
-        return resignedDate.get();
+    public String getResigneddate() {
+        return resigneddate.get();
     }
      public String getDid(){
          return this.did;

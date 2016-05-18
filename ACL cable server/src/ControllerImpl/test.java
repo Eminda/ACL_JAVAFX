@@ -8,6 +8,9 @@ import acl.cable.modal.comman.Engineer;
 import java.rmi.RemoteException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javafx.beans.property.SimpleStringProperty;
 
 public class test {
     public DBConnectionForClient dbConnection;
@@ -70,7 +73,12 @@ public class test {
 //        e1.setNIC("nic1");
 //        e1.setEpfId("1012");
 //        cont.addEmployee(e1);
-//        
-        System.out.println(vl.isNic("942610336V"));
+       long millis = System.currentTimeMillis()  ;
+        String st = millis+"";
+        System.out.println(millis);
+       Date dt = new Date(Long.parseLong(st)); 
+       String sdt = new SimpleDateFormat("yyyy-MM-dd").format(dt);
+       SimpleStringProperty ssf = new SimpleStringProperty(sdt);
+        
 }
 }

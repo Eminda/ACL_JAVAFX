@@ -51,7 +51,7 @@ public class DBController {
         
     }
     
-    public boolean editprofile(Employee emp) throws RemoteException{
-        return ctrl.updateEmployee(emp);
+    public boolean editprofile(Employee emp,String oldEpf) throws RemoteException{
+        return ctrl.updateEmployee(emp,oldEpf);
     }
 }

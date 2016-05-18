@@ -5,6 +5,7 @@
  */
 package acl.cable;
 
+import acl.cable.modal.comman.Employee;
 import java.io.IOException;
 import java.net.URL;
 import java.rmi.NotBoundException;
@@ -36,7 +37,7 @@ public class EmployeeViewController implements Initializable {
     private Button btnFake;
     @FXML
     private VBox vboxData;
-
+    public boolean edit;
     
     @FXML
     private BorderPane  borderView;
@@ -46,14 +47,18 @@ public class EmployeeViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        edit = false;
     }    
     
     @FXML
     private void btnMeClicked(MouseEvent e) throws IOException{
+        //EmployeeMeController.edit=true;
         FXMLLoader fx=new FXMLLoader(getClass().getClassLoader().getResource("EmployeeMe.fxml"));
         fx.setBuilderFactory(new JavaFXBuilderFactory());
         BorderPane pane=(BorderPane)fx.load(getClass().getResource("EmployeeMe.fxml"));
+        EmployeeMeController ctrl = (EmployeeMeController)fx.getController();
+        
+    //ctrl.setEmployeePanel();
         pane.setPrefWidth(borderView.getWidth());
         pane.setPrefHeight(borderView.getHeight());
         borderView.setCenter(pane);
@@ -65,7 +70,7 @@ public class EmployeeViewController implements Initializable {
         BorderPane pane=(BorderPane)fx.load(getClass().getResource("EmployeeCurrent.fxml").openStream());
         EmployeeCurrentController ctrl =fx.getController();
         ctrl.makeList();
-        ctrl.initComponent();
+        ctrl.initComponent(this);
         pane.setPrefWidth(borderView.getWidth());
         pane.setPrefHeight(borderView.getHeight());
         
@@ -93,4 +98,14 @@ public class EmployeeViewController implements Initializable {
     private void btnBackClicked(MouseEvent e){
         MainWindowController.controller.setMainWindowControl2();
     }
+    public void enableEdit(Employee emp) throws IOException{
+        FXMLLoader fx=new FXMLLoader(getClass().getClassLoader().getResource("EmployeeCurrentEdit.fxml"));
+        fx.setBuilderFactory(new JavaFXBuilderFactory());
+        AnchorPane pane=(AnchorPane)fx.load(getClass().getResource("EmployeeCurrentEdit.fxml").openStream());
+        fx.<EmployeeCurrentEditController>getController().moreDetails(emp);
+        pane.setPrefWidth(borderView.getWidth());
+        pane.setPrefHeight(borderView.getHeight());
+        borderView.setCenter(pane);
+    }
+    
 }

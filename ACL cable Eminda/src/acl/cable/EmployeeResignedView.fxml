@@ -59,7 +59,7 @@
                 <TableColumn fx:id="prefName" editable="false" maxWidth="4000.0" minWidth="0.0" prefWidth="109.0" text="Prefered Name" />
                   <TableColumn fx:id="epfno" maxWidth="4000.0" minWidth="0.0" prefWidth="114.0" text="EPF No" />
                   <TableColumn fx:id="nic" maxWidth="4000.0" minWidth="0.0" prefWidth="107.0" text="NIC" />
-                  <TableColumn fx:id="resignedDate" maxWidth="4000.0" minWidth="0.0" prefWidth="92.0" text="Resigned Date" />
+                  <TableColumn fx:id="resigneddate" maxWidth="4000.0" minWidth="0.0" prefWidth="92.0" text="Resigned Date" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

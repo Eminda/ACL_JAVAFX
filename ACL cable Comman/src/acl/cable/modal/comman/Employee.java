@@ -26,6 +26,7 @@ public abstract class Employee implements Serializable{
     private String name;
     private String preferedName;
     private Date resignedDate;
+    private byte[] photo;
 
     public Employee() {
     }
@@ -51,6 +52,14 @@ public abstract class Employee implements Serializable{
      */
     public String getEpfId() {
         return epfNo;
+    }
+
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
     }
 
     /**

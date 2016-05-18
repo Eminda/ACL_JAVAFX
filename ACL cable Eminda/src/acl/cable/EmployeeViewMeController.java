@@ -119,7 +119,7 @@ private EmployeeMeController parent;
        MainWindowController.getLoggUser().setName(name.getText());
     MainWindowController.getLoggUser().setPreferedName(prefName.getText());
        System.out.println(prefName.getText()+" guier  "+MainWindowController.getLoggUser().getPreferedName());
-    db.editprofile(MainWindowController.getLoggUser());
+    db.editprofile(MainWindowController.getLoggUser(),MainWindowController.getLoggUser().getEpfId());
    }
    @FXML public void NameKeyReleased(){
        int length = name.getText().length();

@@ -7,6 +7,15 @@ package acl.cable;
 
 import UeserController.DBController;
 import UeserController.EmployeeTable;
+import acl.cable.modal.comman.Department;
+import acl.cable.modal.comman.ElectricalDepartment;
+import acl.cable.modal.comman.Employee;
+import acl.cable.modal.comman.Engineer;
+import acl.cable.modal.comman.Factory;
+import acl.cable.modal.comman.MechanicalDepartment;
+import acl.cable.modal.comman.OIC;
+import acl.cable.modal.comman.Worker;
+import java.io.IOException;
 import java.net.URL;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -16,14 +25,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -49,9 +59,23 @@ public class EmployeeCurrentController implements Initializable {
     @FXML ComboBox selectType;
     @FXML ComboBox selectDivision;
     @FXML Label Division;
+    public EmployeeViewController view;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      
+      table.setOnMousePressed(new EventHandler<MouseEvent>() {
+    @Override 
+    public void handle(MouseEvent event) {
+        if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
+            System.out.println(table.getSelectionModel().getSelectedItem().getName());
+            try {
+                view.enableEdit(makeEmployee(table.getSelectionModel().getSelectedItem()));
+            } catch (IOException ex) {
+                Logger.getLogger(EmployeeCurrentController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+    }
+});
     }
     public void init(){
         System.out.println("init is called");
@@ -64,7 +88,7 @@ public class EmployeeCurrentController implements Initializable {
     
     }
     
-    public void initComponent(){
+    public void initComponent(EmployeeViewController view){
         selectType.getItems().addAll(
                 "All",
                 "Engineer",
@@ -72,6 +96,7 @@ public class EmployeeCurrentController implements Initializable {
                 "Worker"
         );
         noDivision();
+        this.view = view;
         
     }
     public void setObservable(ArrayList<EmployeeTable> user){
@@ -139,6 +164,43 @@ public class EmployeeCurrentController implements Initializable {
     public void selectDivision() throws RemoteException, NotBoundException{
         int val= selectDivision.getSelectionModel().getSelectedIndex();
         if (val>-1) {val2=val;makeFilteredList();}
+        
     }
+    
+  public Employee makeEmployee(EmployeeTable temp){
+      Employee emp;
+     if (temp.getPos().equals("Engineer")){emp = createEngineer(temp);}
+     else if (temp.getPos().equals("OIC")){emp = createOIC(temp);}
+     else emp = createWorker(temp);
+     emp.setNIC(temp.getNic());
+     emp.setPreferedName(temp.getPrefName());
+     return emp;
+  }
+  private Engineer createEngineer(EmployeeTable emp){
+      Engineer eng = new Engineer("",emp.getEpfno(),emp.getName(),null);
+      Department dep;
+      if("1".equals(emp.getDid())) dep = new ElectricalDepartment();
+      else  dep = new MechanicalDepartment();
+      dep.setId(Integer.parseInt(emp.getDid()));
+      eng.setDepartment(dep);
+      return eng;
+  }
+   private Worker createWorker(EmployeeTable emp){
+      Worker eng = new Worker("",emp.getEpfno(),emp.getName(),null);
+      Department dep;
+      if("1".equals(emp.getDid())) dep = new ElectricalDepartment();
+      else  dep = new MechanicalDepartment();
+      dep.setId(Integer.parseInt(emp.getDid()));
+      eng.setDepartment(dep);
+      return eng;
+  }
+   
+   private OIC createOIC(EmployeeTable emp){
+      OIC eng = new OIC("",emp.getEpfno(),emp.getName(),null);
+       Factory dep = new Factory();
+      dep.setID(Integer.parseInt(emp.getDid()));
+      eng.setFactor(dep);
+      return eng;
+  }
     
 }

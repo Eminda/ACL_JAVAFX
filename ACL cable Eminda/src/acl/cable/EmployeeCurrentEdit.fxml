@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="670.0" style="-fx-background-color: #a7bbef;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="acl.cable.EmployeeCurrentEditController">
+   <children>
+      <GridPane prefHeight="400.0" prefWidth="670.0">
+         <children>
+            <Label layoutX="10.0" layoutY="236.0" prefHeight="17.0" prefWidth="271.0" GridPane.rowIndex="3" />
+            <Label layoutX="10.0" layoutY="303.0" prefHeight="17.0" prefWidth="271.0" GridPane.rowIndex="5" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <children>
+                  <ComboBox fx:id="slectDeparment" disable="true" layoutY="16.0" prefWidth="150.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="21.0" prefHeight="17.0" prefWidth="180.0" text="Name">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <children>
+                  <Label layoutX="14.0" layoutY="21.0" prefHeight="17.0" prefWidth="180.0" text="Preferred Name">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+               <children>
+                  <Label layoutX="14.0" layoutY="21.0" prefHeight="17.0" prefWidth="180.0" text="NIC">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
+               <children>
+                  <Label layoutX="14.0" layoutY="21.0" prefHeight="17.0" prefWidth="180.0" text="EPF No">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4">
+               <children>
+                  <Label fx:id="department" layoutX="14.0" layoutY="21.0" prefHeight="17.0" prefWidth="180.0" text="Department">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5">
+               <children>
+                  <Label layoutX="14.0" layoutY="21.0" prefHeight="17.0" prefWidth="180.0" text="Position">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <children>
+                  <Button fx:id="editProfile" layoutX="245.0" layoutY="16.0" mnemonicParsing="false" onAction="#buttonClickEdit" prefHeight="25.0" prefWidth="80.0" text="Edit Profile" />
+                  <Button fx:id="back" layoutX="191.0" layoutY="16.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="Back" />
+                  <Button fx:id="done" layoutX="398.0" layoutY="16.0" mnemonicParsing="false" onAction="#buttonCLickedDone" text="Done" />
+                  <Button fx:id="cancle" layoutX="335.0" layoutY="16.0" mnemonicParsing="false" onAction="#buttonCLickedCalnce" text="Cancel" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <TextField fx:id="engName" editable="false" layoutY="17.0" onKeyReleased="#NameKeyReleased" onMousePressed="#name" prefHeight="25.0" prefWidth="368.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <TextField fx:id="engPrefName" editable="false" layoutX="1.0" layoutY="16.0" onKeyReleased="#PrefNameKeyReleased" onMousePressed="#pref" prefHeight="25.0" prefWidth="293.0" promptText="Not more than 20 charectors" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <TextField fx:id="engNic" editable="false" layoutY="16.0" onKeyReleased="#NICKeyRelesed" onMousePressed="#nic" prefHeight="25.0" prefWidth="80.0" promptText="999999999" />
+                  <Label layoutX="87.0" layoutY="20.0" text="V" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <children>
+                  <TextField fx:id="engEpfno" editable="false" layoutY="16.0" onKeyReleased="#EPFKeyRelesed" onMousePressed="#epf" prefHeight="25.0" prefWidth="49.0" promptText="99999" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <children>
+                  <Label fx:id="position" layoutY="22.0" prefHeight="17.0" prefWidth="180.0" text="Position">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="485.0" minWidth="10.0" prefWidth="213.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="464.0" minWidth="10.0" prefWidth="457.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+   </children>
+</AnchorPane>

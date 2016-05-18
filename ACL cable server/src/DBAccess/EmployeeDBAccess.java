@@ -42,11 +42,11 @@ public class EmployeeDBAccess {
         }
     }
     
-    public boolean updateEmployee(Employee employee) throws ClassNotFoundException, SQLException {
+    public boolean updateEmployee(Employee employee,String oldEpf ) throws ClassNotFoundException, SQLException {
         lock.writeLock().lock();
         try {
             System.out.println("qqqqqqqqq");
-            String sql = updateSQL(employee);
+            String sql = updateSQL(employee,oldEpf);
             Connection conn = DBConnectionForClient.getConnection();
             Statement stm = conn.createStatement();
             int executeUpdate = stm.executeUpdate(sql);
@@ -227,21 +227,24 @@ public class EmployeeDBAccess {
             return sql;  
         }
     
-    public String updateSQL(Employee emp){
+    public String updateSQL(Employee emp,String oldEpf){
             int wrkplaceID;
             String sql = null;
             if (emp instanceof Engineer){
                 Engineer eng = (Engineer) emp;
                 wrkplaceID = eng.getDepartment().getId();
-                sql = "update Engineer set did="+wrkplaceID+" , name='"+emp.getName()+"' , preferedname='"+emp.getPreferedName()+"' , "+"NIC= '"+emp.getNIC()+"' where epfnoEng="+emp.getEpfId()+";";
+                sql = "update Engineer set did="+wrkplaceID+" , name='"+emp.getName()+"' , preferedname='"+emp.getPreferedName()+"' , "+"NIC= '"+emp.getNIC()+"', epfnoEng="+emp.getEpfId()+" where epfnoEng="+oldEpf+";";
+                System.out.println(sql);
                 }else if(emp instanceof OIC){
                 OIC oic = (OIC) emp;
                 wrkplaceID = oic.getFactor().getID();
-                sql = "update OIC set did="+wrkplaceID+" , name='"+emp.getName()+"' , preferedname='"+emp.getPreferedName()+"' , "+"NIC= '"+emp.getNIC()+"' where epfnoOIC="+emp.getEpfId()+";";}
+                sql = "update OIC set diid="+wrkplaceID+" , name='"+emp.getName()+"' , preferedname='"+emp.getPreferedName()+"' , "+"NIC= '"+emp.getNIC()+"', epfnoOIC="+emp.getEpfId()+" where epfnoOIC="+oldEpf+";";}
+                
                 else if (emp instanceof Worker){
                 Worker wrkr = (Worker)emp;
                 wrkplaceID = wrkr.getDepartment().getId();
-                sql = "update Worker set did="+wrkplaceID+" , name='"+emp.getName()+"' , preferedname='"+emp.getPreferedName()+"' , "+"NIC= '"+emp.getNIC()+"' where epfnoWkr="+emp.getEpfId()+";";}
+                sql = "update Worker set did="+wrkplaceID+" , name='"+emp.getName()+"' , preferedname='"+emp.getPreferedName()+"' , "+"NIC= '"+emp.getNIC()+"', epfnoWkr="+emp.getEpfId()+" where epfnoWkr="+oldEpf+";";}
+            System.out.println(sql);
             return sql;  
         }
     

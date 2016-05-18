@@ -45,7 +45,7 @@ public class EmployeeResignedViewController implements Initializable {
     @FXML private TableColumn<ResignedEmployee,String> prefName;
     @FXML private TableColumn<ResignedEmployee,String> nic;
     @FXML private TableColumn<ResignedEmployee,String> epfno;
-    @FXML private TableColumn<ResignedEmployee,Long> resignedDate;
+    @FXML private TableColumn<ResignedEmployee,String> resigneddate;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -66,7 +66,7 @@ public class EmployeeResignedViewController implements Initializable {
         prefName.setCellValueFactory(new PropertyValueFactory<ResignedEmployee,String>("prefName"));
         nic.setCellValueFactory(new PropertyValueFactory<ResignedEmployee,String>("nic"));
         epfno.setCellValueFactory(new PropertyValueFactory<ResignedEmployee,String>("epfno"));
-        resignedDate.setCellValueFactory(new PropertyValueFactory<ResignedEmployee,Long>("resignedDate"));
+        resigneddate.setCellValueFactory(new PropertyValueFactory<ResignedEmployee,String>("resigneddate"));
         table.setItems(ob);
         }
     
@@ -74,7 +74,7 @@ public class EmployeeResignedViewController implements Initializable {
         ob = FXCollections.observableArrayList();
         for (ResignedEmployee user1 : user) {
             ob.add(user1);
-            System.out.println("user is added "+user1.getName());
+            System.out.println("user is added "+user1.getResigneddate());
             }}
      
      public void makeList() throws RemoteException, NotBoundException{
@@ -95,4 +95,6 @@ public class EmployeeResignedViewController implements Initializable {
         makeList();
         System.out.println(employeeType.getSelectionModel().getSelectedIndex());
     }
+    
+    
 }

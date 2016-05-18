@@ -18,14 +18,16 @@ public class EmployeeTable {
     final private SimpleStringProperty epfno;
     final private SimpleStringProperty photo;
     final private String did;
+    final private String pos;
 
-    public EmployeeTable(String name, String prefName, String nic, String epfno, String photo,String did) {
+    public EmployeeTable(String name, String prefName, String nic, String epfno, String photo,String did,String pos) {
         this.name =new SimpleStringProperty(name);
         this.prefName = new SimpleStringProperty(prefName);
         this.nic = new SimpleStringProperty(nic);
         this.epfno = new SimpleStringProperty(epfno);
         this.photo = new SimpleStringProperty(photo);
         this.did = did;
+        this.pos = pos;
     }
 
     public String getName() {
@@ -50,4 +52,8 @@ public class EmployeeTable {
      public String getDid(){
          return this.did;
      }
+
+    public String getPos() {
+        return pos;
+    }
 }
