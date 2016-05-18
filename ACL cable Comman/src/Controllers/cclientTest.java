@@ -25,12 +25,6 @@ public class cclientTest {
         Registry rg = LocateRegistry.getRegistry("LocalHost",1010);
         FactoryController ft = (FactoryController)rg.lookup("myFactory");
         EmployeeController ct = (EmployeeController)ft.getEmployee();
-        ArrayList<ArrayList<String>> list=ct.getEmployee(1);
-        for (ArrayList<String> list1 : list) {
-            for (String list11 : list1) {
-                System.out.print(list11+" ");
-            }
-            System.out.println();
-        }
+        ct.resigneEmployee("55589", "34323255");
     }
 }

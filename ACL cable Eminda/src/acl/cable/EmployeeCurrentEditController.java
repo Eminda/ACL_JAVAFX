@@ -18,6 +18,8 @@ import java.net.URL;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -35,14 +37,13 @@ import javafx.scene.control.ToggleGroup;
 public class EmployeeCurrentEditController implements Initializable {
     @FXML
     private Button editProfile;
-    @FXML private Button back;
     @FXML private Button cancle;
     @FXML private Button done;
     
     
     
     @FXML
-    private Button btnCreate;
+    private Button resign;
     @FXML private TextField engName;
     @FXML private TextField engEpfno;
     @FXML private TextField engPrefName;
@@ -57,6 +58,7 @@ public class EmployeeCurrentEditController implements Initializable {
     @FXML Label hPosition;
     @FXML ComboBox slectDeparment;
     @FXML Label position;
+    DBController dbc;
     /**
      * Initializes the controller class.
      */
@@ -65,12 +67,20 @@ public class EmployeeCurrentEditController implements Initializable {
         System.out.println("Called");
         cancle.setVisible(false);
         done.setVisible(false);
+        try {
+            dbc = new DBController();
+        } catch (RemoteException ex) {
+            Logger.getLogger(EmployeeCurrentEditController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NotBoundException ex) {
+            Logger.getLogger(EmployeeCurrentEditController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
     
     
     public void moreDetails(Employee emp){
         this.emp = emp;
         System.out.println("@#$@$#@Called"+emp.getName());
+        if(!authorize()) editProfile.setDisable(true);
         setDetails();
     }
     
@@ -139,29 +149,37 @@ public class EmployeeCurrentEditController implements Initializable {
          
          //buttonCLickedCalnce();
      }
+     
+     @FXML public void ResignedClicked() throws RemoteException, NotBoundException{
+         System.out.println("RESIGN call 1    daefsef"+ emp.isResigned()); 
+         dbc.resignEmployee(emp.getEpfId());
+         
+          System.out.println("RESIGN call 1");
+     }
      @FXML public void buttonCLickedCalnce(){
          engEpfno.setEditable(false);
          engName.setEditable(false);
          engNic.setEditable(false);
          engPrefName.setEditable(false);
          editProfile.setVisible(true);
-         back.setVisible(true);
+         resign.setVisible(false);
          done.setVisible(false);
          cancle.setVisible(false);
          slectDeparment.setDisable(true);
            setDetails();
      }
      @FXML public void buttonClickEdit(){
+        
          engEpfno.setEditable(true);
          engName.setEditable(true);
          engNic.setEditable(true);
          engPrefName.setEditable(true);
          editProfile.setVisible(false);
-         back.setVisible(false);
+         resign.setVisible(true);
          done.setVisible(true);
          cancle.setVisible(true);
          slectDeparment.setDisable(false);
-         
+        
      }
      
      private void proceedWithEditing() throws RemoteException, NotBoundException{
@@ -190,7 +208,7 @@ public class EmployeeCurrentEditController implements Initializable {
         emp  = EditEngineer((Engineer)emp);
         else if(emp instanceof OIC) emp = EditOIC((OIC) emp);
         else emp = EditWorker((Worker)emp);
-        new DBController().editprofile(emp, oldEpf);
+        dbc.editprofile(emp, oldEpf);
         buttonCLickedCalnce();;
         
      }
@@ -290,5 +308,15 @@ public class EmployeeCurrentEditController implements Initializable {
         
         else return ValidateEmployee.validateNic(engNic.getText(), engNic);
    }
+    
+    private boolean authorize(){
+        if (emp.getEpfId().equalsIgnoreCase(MainWindowController.getLoggUser().getEpfId())) return true;
+        else if(emp instanceof Engineer) return false;
+        else return true;
     }
+
+    
+}
+
+
 

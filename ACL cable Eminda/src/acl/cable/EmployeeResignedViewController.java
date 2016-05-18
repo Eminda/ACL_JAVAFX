@@ -8,6 +8,7 @@ package acl.cable;
 import UeserController.DBController;
 import UeserController.EmployeeTable;
 import UeserController.ResignedEmployee;
+import java.io.IOException;
 import java.net.URL;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -17,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -25,6 +27,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -38,6 +41,7 @@ public class EmployeeResignedViewController implements Initializable {
     @FXML TextField fNic;
     @FXML TextField fEpfno;
     @FXML Button bCreate;
+    @FXML Button bRjoin;
     public DBController dbc;
     public ObservableList ob ;
     @FXML private TableView<ResignedEmployee> table;
@@ -49,7 +53,20 @@ public class EmployeeResignedViewController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+    table.setOnMousePressed(new EventHandler<MouseEvent>() {
+    @Override 
+    public void handle(MouseEvent event) {
+        if (event.isPrimaryButtonDown() ) {
+            System.out.println(table.getSelectionModel().getSelectedItem().getName());
+            bRjoin.setDisable(false);
+            
+        }
+    }
+});
+        
+        
         initComponent();
+        this.bRjoin.setDisable(true);
         employeeType.getSelectionModel().select(0);
         try {
             bttnFliter();
@@ -96,5 +113,7 @@ public class EmployeeResignedViewController implements Initializable {
         System.out.println(employeeType.getSelectionModel().getSelectedIndex());
     }
     
-    
+    public void makeRejoin(){
+        
+    }
 }

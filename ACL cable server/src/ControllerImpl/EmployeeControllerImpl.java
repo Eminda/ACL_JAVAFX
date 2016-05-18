@@ -123,5 +123,30 @@ public class EmployeeControllerImpl extends UnicastRemoteObject implements Emplo
             Logger.getLogger(EmployeeControllerImpl.class.getName()).log(Level.SEVERE, null, ex);
         }return null;
         }
+
+    
+    @Override
+    public boolean resigneEmployee(String epf, String date) {
+        try {
+            System.out.println("resign1111");
+            return db.resignEmployee(epf, date);
+        } catch (SQLException ex) {
+            Logger.getLogger(EmployeeControllerImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(EmployeeControllerImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }return false;
+        
+    }
+
+    @Override
+    public boolean rejoinEmployee(String  epf) {
+        try {
+            return db.rejoinEmployee(epf);
+        } catch (SQLException ex) {
+            Logger.getLogger(EmployeeControllerImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(EmployeeControllerImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }return false;
+  }
     
 }

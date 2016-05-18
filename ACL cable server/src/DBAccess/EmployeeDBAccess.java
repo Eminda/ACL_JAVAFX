@@ -249,5 +249,66 @@ public class EmployeeDBAccess {
         }
     
     
+    public boolean resignEmployee(String epf,String Date) throws SQLException, ClassNotFoundException{
+        lock.writeLock().lock();
+        try {
+            System.out.println("qqqqqqqqq");
+            String sql = resignSQL(epf, Date, 1);
+            String sq2 = resignSQL(epf, Date, 2);
+            String sq3 = resignSQL(epf, Date, 3);
+            Connection conn = DBConnectionForClient.getConnection();
+            
+            Statement stm = conn.createStatement();
+            int executeUpdate1 = stm.executeUpdate(sql);
+            System.out.println(sql);
+            int executeUpdate2 = stm.executeUpdate(sq2);
+            System.out.println(sq2);
+            int executeUpdate3 = stm.executeUpdate(sq3);
+            System.out.println(sq2);
+            if ((executeUpdate1 > 0)||(executeUpdate2 > 0)||(executeUpdate3 > 0)) {
+                return true;
+            } else {
+                return false;
+            }
+        } finally {
+            lock.writeLock().unlock();
+        }
+    }
+    
+     public boolean rejoinEmployee(String epf) throws SQLException, ClassNotFoundException{
+        lock.writeLock().lock();
+        try {
+            System.out.println("qqqqqqqqq");
+            String sql = rejoinEmployeesql(epf,1);
+            String sq2 = rejoinEmployeesql(epf,2);
+            String sq3 = rejoinEmployeesql(epf,3);
+            Connection conn = DBConnectionForClient.getConnection();
+            
+            Statement stm = conn.createStatement();
+            int executeUpdate1 = stm.executeUpdate(sql);
+            int executeUpdate2 = stm.executeUpdate(sq2);
+            int executeUpdate3 = stm.executeUpdate(sq3);
+            if ((executeUpdate1 > 0)||(executeUpdate2 > 0)||(executeUpdate3 > 0)) {
+                return true;
+            } else {
+                return false;
+            }
+        } finally {
+            lock.writeLock().unlock();
+        }
+    }
+    private String resignSQL(String epf,String date ,int val){
+        if (val==1) return "update Engineer set isresigned=1 , resignedate="+date+" where epfnoEng="+epf+";";
+        else if (val==2)return "update OIC set isresigned=1 , resignedate="+date+" where epfnoOIC="+epf+";";
+        else return "update Worker set isresigned=1 , resignedate="+date+" where epfnoWkr="+epf+";";
+        
+    } 
+    
+    
+    private String rejoinEmployeesql(String epf,int val){
+        if (val==1) return "update Engineer set isresigned=0 where epfnoEng = "+epf+";";
+        else if (val==2) return "update OIC set isresigned=0 where epfnoOIC = "+epf+";";
+        else  return "update Worker set isresigned=0 where epfnoWkr = "+epf+";";
+    }
 }
 

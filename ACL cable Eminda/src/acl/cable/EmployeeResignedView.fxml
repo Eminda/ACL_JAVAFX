@@ -45,6 +45,7 @@
                   </Label>
                   <TextField fx:id="fEpfno" layoutX="167.0" layoutY="122.0" prefHeight="25.0" prefWidth="153.0" />
                   <Button layoutX="341.0" layoutY="122.0" mnemonicParsing="false" onAction="#bttnFliter" text="Filter" />
+                  <Button fx:id="bRjoin" layoutX="523.0" layoutY="124.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="131.0" text="Add to working list" />
                </children>
             </AnchorPane>
          </center>

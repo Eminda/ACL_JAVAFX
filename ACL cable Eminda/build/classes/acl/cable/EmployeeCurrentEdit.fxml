@@ -75,7 +75,6 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <children>
                   <Button fx:id="editProfile" layoutX="245.0" layoutY="16.0" mnemonicParsing="false" onAction="#buttonClickEdit" prefHeight="25.0" prefWidth="80.0" text="Edit Profile" />
-                  <Button fx:id="back" layoutX="191.0" layoutY="16.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="Back" />
                   <Button fx:id="done" layoutX="398.0" layoutY="16.0" mnemonicParsing="false" onAction="#buttonCLickedDone" text="Done" />
                   <Button fx:id="cancle" layoutX="335.0" layoutY="16.0" mnemonicParsing="false" onAction="#buttonCLickedCalnce" text="Cancel" />
                </children>
@@ -108,6 +107,11 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6">
+               <children>
+                  <Button fx:id="resign" layoutX="14.0" layoutY="16.0" mnemonicParsing="false" onAction="#ResignedClicked" prefHeight="25.0" prefWidth="180.0" text="Add to resigned list" visible="false" />
                </children>
             </AnchorPane>
          </children>

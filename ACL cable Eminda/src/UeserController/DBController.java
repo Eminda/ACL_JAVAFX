@@ -54,4 +54,15 @@ public class DBController {
     public boolean editprofile(Employee emp,String oldEpf) throws RemoteException{
         return ctrl.updateEmployee(emp,oldEpf);
     }
+    public boolean resignEmployee(String epf) throws RemoteException{
+        System.out.println("RESIGN call 2");
+        String date =DateConverter.getLDate();
+        System.out.println("RESIGN call 2"+date+"  "+epf);
+         ctrl.resigneEmployee(epf, date);
+         System.out.println("dff");
+         return false;
+    }
+    public boolean rejoinEmployee(String epf) throws RemoteException{
+        return ctrl.rejoinEmployee(epf);
+    }
 }
