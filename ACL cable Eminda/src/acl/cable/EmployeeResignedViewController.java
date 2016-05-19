@@ -6,6 +6,7 @@
 package acl.cable;
 
 import UeserController.DBController;
+import UeserController.Dialog;
 import UeserController.EmployeeTable;
 import UeserController.ResignedEmployee;
 import java.io.IOException;
@@ -50,7 +51,7 @@ public class EmployeeResignedViewController implements Initializable {
     @FXML private TableColumn<ResignedEmployee,String> nic;
     @FXML private TableColumn<ResignedEmployee,String> epfno;
     @FXML private TableColumn<ResignedEmployee,String> resigneddate;
-    
+    EmployeeViewController ctrl;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     table.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -59,6 +60,7 @@ public class EmployeeResignedViewController implements Initializable {
         if (event.isPrimaryButtonDown() ) {
             System.out.println(table.getSelectionModel().getSelectedItem().getName());
             bRjoin.setDisable(false);
+           
             
         }
     }
@@ -76,6 +78,10 @@ public class EmployeeResignedViewController implements Initializable {
             Logger.getLogger(EmployeeResignedViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }   
+    
+    public void setView(EmployeeViewController ctrl){
+        this.ctrl = ctrl;
+    }
     
     public void init(){
         System.out.println("init is called");
@@ -112,8 +118,12 @@ public class EmployeeResignedViewController implements Initializable {
         makeList();
         System.out.println(employeeType.getSelectionModel().getSelectedIndex());
     }
-    
-    public void makeRejoin(){
-        
+    @FXML public void buttonClickedRejoin() throws IOException{
+        makeRejoin(table.getSelectionModel().getSelectedItem().getEpfno());
+    }
+    public void makeRejoin(String epf) throws RemoteException, IOException{
+        dbc.rejoinEmployee(epf);
+        ctrl.showResignedTable();
+        Dialog.showInfo("Success", "Rejoin Success");
     }
 }

@@ -19,7 +19,7 @@
                         <Image url="@man128.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="76.0" layoutY="212.0" mnemonicParsing="false" text="Change" />
+                  <Button layoutX="76.0" layoutY="212.0" mnemonicParsing="false" text="Change" visible="false" />
                </children>
             </AnchorPane>
          </right>
@@ -54,7 +54,7 @@
             <PasswordField fx:id="newP" layoutX="230.0" layoutY="55.0" prefHeight="25.0" prefWidth="168.0" />
             <PasswordField fx:id="newAP" layoutX="231.0" layoutY="93.0" prefHeight="25.0" prefWidth="168.0" />
             <PasswordField fx:id="oldP" layoutX="230.0" layoutY="132.0" prefHeight="25.0" prefWidth="168.0" />
-            <Button layoutX="414.0" layoutY="132.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Confirm" />
+            <Button fx:id="conform" layoutX="414.0" layoutY="132.0" mnemonicParsing="false" onAction="#buttonClickedEdit" prefHeight="25.0" prefWidth="85.0" text="Confirm" />
             <Button layoutX="510.0" layoutY="132.0" mnemonicParsing="false" onAction="#hidePassword" text="Cancel" />
          </children>
       </AnchorPane>

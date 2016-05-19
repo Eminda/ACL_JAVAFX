@@ -22,6 +22,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
@@ -49,11 +50,21 @@ public class EmployeeOICdetailController implements Initializable {
     public boolean noFaultAtNic=true;
     public boolean noFaultAtPref=true;
     public boolean noFaultAtname =true;
-
+    @FXML public ComboBox cmb;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        cmb.getItems().addAll(
+        "Alluminium factory",
+        "Copper cable factory",
+         "Flexible factory",
+        "Dealer range factory",
+        "Rod mill factory",
+        "S & B factory",
+         "Drum yard"
+         
+        );
+        cmb.getSelectionModel().select(0);
     }    
     public void setButtonPane(boolean removeAll,boolean isCreating,boolean removeResign){
         btnResign.setVisible(false);
@@ -83,7 +94,7 @@ public class EmployeeOICdetailController implements Initializable {
         eng.setPreferedName(prefName);
         eng.setNIC(nic);
         Factory fc = new Factory();
-        fc.setID(3);
+        fc.setID(cmb.getSelectionModel().getSelectedIndex()+3);
         eng.setFactor(fc);
         //if(this.isElec.isSelected()) eng.setDepartment(new ElectricalDepartment());
         //else eng.setDepartment(new MechanicalDepartment());

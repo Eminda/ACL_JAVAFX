@@ -6,6 +6,7 @@
 package acl.cable;
 
 import UeserController.DBController;
+import UeserController.Dialog;
 import UeserController.ValidateEmployee;
 import acl.cable.modal.comman.ElectricalDepartment;
 import acl.cable.modal.comman.Employee;
@@ -14,6 +15,7 @@ import acl.cable.modal.comman.Factory;
 import acl.cable.modal.comman.MechanicalDepartment;
 import acl.cable.modal.comman.OIC;
 import acl.cable.modal.comman.Worker;
+import java.io.IOException;
 import java.net.URL;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -28,6 +30,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -59,6 +62,7 @@ public class EmployeeCurrentEditController implements Initializable {
     @FXML ComboBox slectDeparment;
     @FXML Label position;
     DBController dbc;
+    public EmployeeViewController view;
     /**
      * Initializes the controller class.
      */
@@ -77,11 +81,12 @@ public class EmployeeCurrentEditController implements Initializable {
     }    
     
     
-    public void moreDetails(Employee emp){
+    public void moreDetails(Employee emp,EmployeeViewController view){
         this.emp = emp;
         System.out.println("@#$@$#@Called"+emp.getName());
         if(!authorize()) editProfile.setDisable(true);
         setDetails();
+        this.view = view;
     }
     
     
@@ -147,14 +152,16 @@ public class EmployeeCurrentEditController implements Initializable {
      @FXML public void buttonCLickedDone() throws RemoteException, NotBoundException{
          proceedWithEditing();
          
+         
          //buttonCLickedCalnce();
      }
      
-     @FXML public void ResignedClicked() throws RemoteException, NotBoundException{
+     @FXML public void ResignedClicked() throws RemoteException, NotBoundException, IOException{
          System.out.println("RESIGN call 1    daefsef"+ emp.isResigned()); 
          dbc.resignEmployee(emp.getEpfId());
-         
+         view.showCurrentTable();
           System.out.println("RESIGN call 1");
+          Dialog.showInfo("success", "Employee has been added to resigned list");
      }
      @FXML public void buttonCLickedCalnce(){
          engEpfno.setEditable(false);
@@ -209,7 +216,8 @@ public class EmployeeCurrentEditController implements Initializable {
         else if(emp instanceof OIC) emp = EditOIC((OIC) emp);
         else emp = EditWorker((Worker)emp);
         dbc.editprofile(emp, oldEpf);
-        buttonCLickedCalnce();;
+        buttonCLickedCalnce();
+        Dialog.showInfo("Success", "Edited details are saved");
         
      }
      
@@ -303,7 +311,7 @@ public class EmployeeCurrentEditController implements Initializable {
         else return ValidateEmployee.validateEpf(engEpfno.getText(), engEpfno);
    }
     private boolean checkNic() throws RemoteException, NotBoundException{
-        System.out.println(emp.getNIC()+" VS "+engNic.getText()+"V");
+        System.out.println(emp.getNIC()+" VS "+engNic.getText());
         if(emp.getNIC().equalsIgnoreCase(engNic.getText()+"V")) return true;
         
         else return ValidateEmployee.validateNic(engNic.getText(), engNic);

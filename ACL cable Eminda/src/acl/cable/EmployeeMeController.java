@@ -5,9 +5,14 @@
  */
 package acl.cable;
 
+import UeserController.DBController;
+import UeserController.Dialog;
 import acl.cable.modal.comman.Employee;
+import acl.cable.modal.comman.Engineer;
 import java.io.IOException;
 import java.net.URL;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,13 +44,16 @@ public class EmployeeMeController implements Initializable {
     @FXML
     private BorderPane borderPaneEmployee;
     @FXML AnchorPane passwordPane;
+    DBController db;
     //public static boolean edit=false;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
             setEmployeePanel();
-            
+            db = new DBController();
         } catch (IOException ex) {
+            Logger.getLogger(EmployeeMeController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NotBoundException ex) {
             Logger.getLogger(EmployeeMeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }    
@@ -69,13 +77,35 @@ public class EmployeeMeController implements Initializable {
         oldP.clear();
         passwordPane.setVisible(false);
     }
-    
-    public void setCurentEditin(Employee emp) throws IOException{
-         FXMLLoader fx=new FXMLLoader(getClass().getClassLoader().getResource("EmployeeCurrentEditController.fxml"));
-        fx.setBuilderFactory(new JavaFXBuilderFactory());
-        AnchorPane pane=(AnchorPane)fx.load(getClass().getResource("EmployeeCurrentEditController.fxml").openStream());
-        fx.<EmployeeCurrentEditController>getController().moreDetails(emp);
-        borderPaneEmployee.setCenter(pane);
-        passwordPane.setVisible(false);
+    @FXML public void buttonClickedEdit() throws RemoteException, NotBoundException{
+        System.out.println(oldP.getText()+" "+newP.getText()+" "+newAP.getText()+" "+MainWindowController.currentPassword);
+        if(oldP.getText().isEmpty()||newP.getText().isEmpty()||newAP.getText().isEmpty()){Dialog.showError("Please fill all three requirements");}
+        else if (oldP.getText().equals(MainWindowController.currentPassword)){
+            if (newP.getText().equals(newAP.getText())){
+                db = new DBController();
+                Engineer eng = new Engineer();
+                eng.setEpfId(MainWindowController.loggUser.getEpfId());
+                System.out.println(MainWindowController.loggUser.getEmplyId());
+                eng.setPasseord(newP.getText());
+                boolean result = db.resetPassword(eng);
+                if(result) {
+                Dialog.showInfo("Success", "The passwor is been changed successfuly");
+                MainWindowController.loggUser.setPasseord(newP.getText());
+                MainWindowController.currentPassword=newP.getText();
+                }
+                else Dialog.showError("Server Error, Try again later ");
+                hidePassword();
+            }
+            else{Dialog.showError("New passwords are not matching");}
+         }else{Dialog.showError("The password u entered is wrong ");}
     }
+    
+//    public void setCurentEditin(Employee emp) throws IOException{
+//         FXMLLoader fx=new FXMLLoader(getClass().getClassLoader().getResource("EmployeeCurrentEditController.fxml"));
+//        fx.setBuilderFactory(new JavaFXBuilderFactory());
+//        AnchorPane pane=(AnchorPane)fx.load(getClass().getResource("EmployeeCurrentEditController.fxml").openStream());
+//        fx.<EmployeeCurrentEditController>getController().moreDetails(emp);
+//        borderPaneEmployee.setCenter(pane);
+//        passwordPane.setVisible(false);
+//    }
 }

@@ -86,20 +86,23 @@ public class ListMaker {
             ListMaker.employees.add(emp);
         }
         return this.employees;
-        
-        
       }
+        
       
-      public ArrayList<EmployeeTable> filter(int val2){
+      
+      public ArrayList<EmployeeTable> filter(int val2,int val1){
+          System.out.println("called");
           ArrayList<EmployeeTable> temp = new ArrayList<EmployeeTable>();
           if (val2==0) return ListMaker.employees;
-          else{
-              ListMaker.employees.stream().filter((temp1) -> (temp1.getDid() == null ? val2+"" == null : temp1.getDid().equals(val2+""))).forEach((temp1) -> {
-                  temp.add(temp1);
-              });
-              return temp;
+          if (val1==3) val2+=2;
+          
+          for (EmployeeTable employee : employees) {
+              if(Integer.parseInt(employee.getDid())==val2)
+                  temp.add(employee);
           }
-      }
+          return temp;
+          }
+      
     
     
     

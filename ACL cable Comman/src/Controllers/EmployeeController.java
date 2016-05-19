@@ -24,4 +24,5 @@ public interface EmployeeController extends Remote {
     ArrayList<ArrayList<String>> getResignedEmployee(int val ,String name , String nic , String epf)throws RemoteException;
     boolean resigneEmployee(String Epf,String date)throws RemoteException;
     boolean rejoinEmployee(String Epf)throws RemoteException;
+    boolean resetPassword(Employee emp)throws RemoteException;
 }

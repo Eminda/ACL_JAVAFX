@@ -30,7 +30,7 @@ import javafx.scene.layout.BorderPane;
  */
 public class MainWindowController implements Initializable {
     public static ElectricalDepartment elect = new ElectricalDepartment();
-    
+    public static String currentPassword= "ACL@123";
     public static Engineer loggUser = new Engineer("", "1199", "Isham Mohamed",null);
     
     

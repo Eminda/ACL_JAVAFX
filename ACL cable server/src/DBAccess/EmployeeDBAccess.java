@@ -61,37 +61,37 @@ public class EmployeeDBAccess {
     }
     
     public boolean updateEmployeePassword(Employee employee) throws ClassNotFoundException, SQLException {
-        boolean isOk = false;
-        String table = null;
-       String id;
-       String password = null;
-       if (employee instanceof Engineer){
-           table ="Engineer";
-           id = "epfnoEng";
-           Engineer eng = (Engineer) employee;
-           password = eng.getPassword();
-       }else{
-           table ="OIC";
-           id = "epfnoOIC";
-           OIC eng = (OIC) employee;
-           password = eng.getPassword();
-       }
+//        boolean isOk = false;
+//        String table = null;
+//       String id;
+//       String password = null;
+//       if (employee instanceof Engineer){
+//           table ="Engineer";
+//           id = "epfnoEng";
+//           Engineer eng = (Engineer) employee;
+//           password = eng.getPassword();
+//       }else{
+//           table ="OIC";
+//           id = "epfnoOIC";
+//           OIC eng = (OIC) employee;
+//           password = eng.getPassword();
+//       
+        Engineer eng = (Engineer) employee;
         try {
             lock.writeLock().lock();
-            String sql = "select (select password('" + "')=s.Password as Equal from "+table+" s where s."+id+"='" + employee.getEpfId()+ "';";
+            String sql1 = "update Engineer set password = (select password('"+eng.getPassword()+"')) where epfnoEng="+eng.getEpfId()+";";
+            String sql2 = "update OIC set password = (select password('"+eng.getPassword()+"')) where epfnoOIC="+eng.getEpfId()+";";
+            System.out.println(sql1);
+            System.out.println(sql2);
             Connection conn = DBConnectionForClient.getConnection();
             Statement stm = conn.createStatement();
-            ResultSet rst = stm.executeQuery(sql);
-            if (rst.next()) {
-                isOk = rst.getBoolean(1);
-            }
-            if (isOk) {
-                return setPassword(employee);
-            }
-            return false;
+            int rst1 = stm.executeUpdate(sql1);
+            int rst2 = stm.executeUpdate(sql2);
+            if((rst1>0)||(rst2>0)) return true;
+            
         } finally {
             lock.writeLock().unlock();
-        }
+        }return false;
     }
     
     private boolean setPassword(Employee employee) throws ClassNotFoundException, SQLException {
@@ -214,15 +214,16 @@ public class EmployeeDBAccess {
             if (emp instanceof Engineer){
                 Engineer eng = (Engineer) emp;
                 wrkplaceID = eng.getDepartment().getId();
-                sql = "insert into Engineer (DID,nic,name,preferedName,photo,password,isresigned,resignedate,epfnoEng) values ("+wrkplaceID+" , '"+emp.getNIC()+"' , '"+emp.getName()+"' , '"+emp.getPreferedName()+"' , "+null+" , '"+eng.getPassword()+"' , "+0+" , "+eng.getResignedDate()+" , "+emp.getEpfId()+")";
-                }else if(emp instanceof OIC){
+                sql = "insert into Engineer (DID,nic,name,preferedName,photo,password,isresigned,resignedate,epfnoEng) values ("+wrkplaceID+" , '"+emp.getNIC()+"' , '"+emp.getName()+"' , '"+emp.getPreferedName()+"' , "+null+" , (select password ('ACL@123')) , "+0+" , "+eng.getResignedDate()+" , "+emp.getEpfId()+");";
+                System.out.println(sql);
+            }else if(emp instanceof OIC){
                 OIC oic = (OIC) emp;
                 wrkplaceID = oic.getFactor().getID();
-                sql = "insert into OIC (diid,nic,name,preferedName,photo,password,isresigned,resignedate,epfnoOIC) values ("+wrkplaceID+" , '"+emp.getNIC()+"' , '"+emp.getName()+"' , '"+emp.getPreferedName()+"' , "+null+" , '"+oic.getPassword()+"' , "+0+" , "+oic.getResignedDate()+" , "+emp.getEpfId()+")";
+                sql = "insert into OIC (diid,nic,name,preferedName,photo,password,isresigned,resignedate,epfnoOIC) values ("+wrkplaceID+" , '"+emp.getNIC()+"' , '"+emp.getName()+"' , '"+emp.getPreferedName()+"' , "+null+" , (select password ('ACL@123')) , "+0+" , "+oic.getResignedDate()+" , "+emp.getEpfId()+");";
             }else if (emp instanceof Worker){
                 Worker wrkr = (Worker)emp;
                 wrkplaceID = wrkr.getDepartment().getId();
-                sql = "insert into worker(DID,nic,name,preferedName,photo,isresigned,resignedate,epfnoWkr) values ("+wrkplaceID+" , '"+emp.getNIC()+"' , '"+emp.getName()+"' , '"+emp.getPreferedName()+"' , "+null+" , "+0+" , "+wrkr.getResignedDate()+" , "+emp.getEpfId()+")";
+                sql = "insert into worker(DID,nic,name,preferedName,photo,isresigned,resignedate,epfnoWkr) values ("+wrkplaceID+" , '"+emp.getNIC()+"' , '"+emp.getName()+"' , '"+emp.getPreferedName()+"' , "+null+" , "+0+" , "+wrkr.getResignedDate()+" , "+emp.getEpfId()+");";
                 }
             return sql;  
         }

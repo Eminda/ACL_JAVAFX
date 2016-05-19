@@ -40,8 +40,8 @@ public class DBController {
         if(val==4) return lm.getCurrentWkr();
         return null;}
 
-    public ArrayList<EmployeeTable> getfliteredEmployee(int val2){
-        return lm.filter(val2);
+    public ArrayList<EmployeeTable> getfliteredEmployee(int val2,int val1){
+        return lm.filter(val2,val1);
     }
     
     public ArrayList<ResignedEmployee> getretiredEmployee(int val , String name, String nic , String Epf) throws RemoteException{
@@ -64,5 +64,8 @@ public class DBController {
     }
     public boolean rejoinEmployee(String epf) throws RemoteException{
         return ctrl.rejoinEmployee(epf);
+    }
+    public boolean resetPassword(Employee emp) throws RemoteException{
+        return ctrl.updateEmployeePassword(emp);
     }
 }

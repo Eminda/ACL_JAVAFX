@@ -73,4 +73,15 @@ alert.setContentText(null);
 alert.showAndWait();
     }
      
+     public static void showInfo(String title,String massege ){
+         Alert alert = new Alert(AlertType.INFORMATION);
+alert.setTitle(title);
+String Massege = massege;
+
+alert.setHeaderText(Massege);
+alert.setContentText(null);
+
+alert.showAndWait();
+     }
+     
 }

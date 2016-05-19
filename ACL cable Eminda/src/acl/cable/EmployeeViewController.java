@@ -41,7 +41,7 @@ public class EmployeeViewController implements Initializable {
     
     @FXML
     private BorderPane  borderView;
-
+    
     /**
      * Initializes the controller class.
      */
@@ -65,25 +65,11 @@ public class EmployeeViewController implements Initializable {
     }
     @FXML
     private void btnCurrentEmployeeClicked(MouseEvent e) throws IOException, RemoteException, NotBoundException{
-        FXMLLoader fx=new FXMLLoader(getClass().getClassLoader().getResource("EmployeeCurrent.fxml"));
-        fx.setBuilderFactory(new JavaFXBuilderFactory());
-        BorderPane pane=(BorderPane)fx.load(getClass().getResource("EmployeeCurrent.fxml").openStream());
-        EmployeeCurrentController ctrl =fx.getController();
-        ctrl.makeList();
-        ctrl.initComponent(this);
-        pane.setPrefWidth(borderView.getWidth());
-        pane.setPrefHeight(borderView.getHeight());
-        
-        borderView.setCenter(pane);
+       showCurrentTable();
     }
     @FXML
     private void btnResignedEmployeeClicked(MouseEvent e) throws IOException{
-        FXMLLoader fx=new FXMLLoader(getClass().getClassLoader().getResource("EmployeeResignedView.fxml"));
-        fx.setBuilderFactory(new JavaFXBuilderFactory());
-        BorderPane pane=(BorderPane)fx.load(getClass().getResource("EmployeeResignedView.fxml"));
-        pane.setPrefWidth(borderView.getWidth());
-        pane.setPrefHeight(borderView.getHeight());
-        borderView.setCenter(pane);
+        showResignedTable();
     }
     @FXML
     private void btnEmployeeCteateClicked(MouseEvent e) throws IOException{
@@ -98,11 +84,34 @@ public class EmployeeViewController implements Initializable {
     private void btnBackClicked(MouseEvent e){
         MainWindowController.controller.setMainWindowControl2();
     }
-    public void enableEdit(Employee emp) throws IOException{
+    public void enableEdit(Employee emp,EmployeeViewController view) throws IOException{
         FXMLLoader fx=new FXMLLoader(getClass().getClassLoader().getResource("EmployeeCurrentEdit.fxml"));
         fx.setBuilderFactory(new JavaFXBuilderFactory());
         AnchorPane pane=(AnchorPane)fx.load(getClass().getResource("EmployeeCurrentEdit.fxml").openStream());
-        fx.<EmployeeCurrentEditController>getController().moreDetails(emp);
+        fx.<EmployeeCurrentEditController>getController().moreDetails(emp,view);
+        pane.setPrefWidth(borderView.getWidth());
+        pane.setPrefHeight(borderView.getHeight());
+        borderView.setCenter(pane);
+    }
+    public void showCurrentTable() throws IOException, RemoteException, NotBoundException{
+         FXMLLoader fx=new FXMLLoader(getClass().getClassLoader().getResource("EmployeeCurrent.fxml"));
+        fx.setBuilderFactory(new JavaFXBuilderFactory());
+        BorderPane pane=(BorderPane)fx.load(getClass().getResource("EmployeeCurrent.fxml").openStream());
+        EmployeeCurrentController ctrl =fx.getController();
+        ctrl.makeList();
+        ctrl.initComponent(this);
+        pane.setPrefWidth(borderView.getWidth());
+        pane.setPrefHeight(borderView.getHeight());
+        
+        borderView.setCenter(pane);
+    }
+    
+    public void showResignedTable() throws IOException{
+        FXMLLoader fx=new FXMLLoader(getClass().getClassLoader().getResource("EmployeeResignedView.fxml"));
+        fx.setBuilderFactory(new JavaFXBuilderFactory());
+        BorderPane pane=(BorderPane)fx.load(getClass().getResource("EmployeeResignedView.fxml").openStream());
+        EmployeeResignedViewController ctrl =fx.getController();
+        ctrl.setView(this);
         pane.setPrefWidth(borderView.getWidth());
         pane.setPrefHeight(borderView.getHeight());
         borderView.setCenter(pane);

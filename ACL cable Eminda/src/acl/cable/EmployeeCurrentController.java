@@ -68,7 +68,7 @@ public class EmployeeCurrentController implements Initializable {
         if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
             System.out.println(table.getSelectionModel().getSelectedItem().getName());
             try {
-                view.enableEdit(makeEmployee(table.getSelectionModel().getSelectedItem()));
+                view.enableEdit(makeEmployee(table.getSelectionModel().getSelectedItem()),view);
             } catch (IOException ex) {
                 Logger.getLogger(EmployeeCurrentController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -115,7 +115,8 @@ public class EmployeeCurrentController implements Initializable {
     }
     
     public void makeFilteredList(){
-        setObservable(dbc.getfliteredEmployee(val2));
+        System.out.println(val1+"  "+val2);
+        setObservable(dbc.getfliteredEmployee(val2,val1));
         init();
     }
     private void noDivision(){
@@ -142,8 +143,13 @@ public class EmployeeCurrentController implements Initializable {
         selectDivision.getItems().clear();
         selectDivision.getItems().setAll(
                 "All",
-                "Divi1",
-                "Divi2"
+                "Alluminium factory",
+        "Copper cable factory",
+         "Flexible factory",
+        "Dealer range factory",
+        "Rod mill factory",
+        "S & B factory",
+         "Drum yard"
         
         );
         Division();
@@ -162,8 +168,12 @@ public class EmployeeCurrentController implements Initializable {
     }
     @FXML
     public void selectDivision() throws RemoteException, NotBoundException{
+        System.out.println("Called4234234");
         int val= selectDivision.getSelectionModel().getSelectedIndex();
-        if (val>-1) {val2=val;makeFilteredList();}
+        System.out.println(val2+"sterwgrete4er");
+        if (val>-1) {val2=val;
+            System.out.println(val1+" "+val2);
+            makeFilteredList();}
         
     }
     

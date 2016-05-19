@@ -126,7 +126,7 @@ public class EmployeeControllerImpl extends UnicastRemoteObject implements Emplo
 
     
     @Override
-    public boolean resigneEmployee(String epf, String date) {
+    public boolean resigneEmployee(String epf, String date)throws RemoteException {
         try {
             System.out.println("resign1111");
             return db.resignEmployee(epf, date);
@@ -139,7 +139,7 @@ public class EmployeeControllerImpl extends UnicastRemoteObject implements Emplo
     }
 
     @Override
-    public boolean rejoinEmployee(String  epf) {
+    public boolean rejoinEmployee(String  epf)throws RemoteException {
         try {
             return db.rejoinEmployee(epf);
         } catch (SQLException ex) {
@@ -148,5 +148,18 @@ public class EmployeeControllerImpl extends UnicastRemoteObject implements Emplo
             Logger.getLogger(EmployeeControllerImpl.class.getName()).log(Level.SEVERE, null, ex);
         }return false;
   }
+
+    @Override
+    public boolean resetPassword(Employee emp) throws RemoteException {
+        try {
+            System.out.println("Method called");
+            return db.updateEmployeePassword(emp);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(EmployeeControllerImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(EmployeeControllerImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
     
 }
