@@ -133,4 +133,11 @@ public class MainWindow2Controller implements Initializable {
 
         MainWindowController.controller.setPanelToCener(pane);
     }
+    
+    public void logoutClicked() throws IOException{
+        MainWindowController.loggUser=null;
+        MainWindowController.Currentid = 0;
+        MainWindowController.currentPassword=null;
+        MainWindowController.controller.setLogin();
+    }
 }

@@ -112,14 +112,14 @@ private EmployeeMeController parent;
          if(noFaultAtPref&&noFaultAtname){
                 editDetails();
                 back();
-                Dialog.showSuccessEdit(MainWindowController.getLoggUser());
+                Dialog.showSuccessEdit(MainWindowController.loggUser);
          }
     }
    public void editDetails() throws RemoteException{
-       MainWindowController.getLoggUser().setName(name.getText());
-    MainWindowController.getLoggUser().setPreferedName(prefName.getText());
-       System.out.println(prefName.getText()+" guier  "+MainWindowController.getLoggUser().getPreferedName());
-    db.editprofile(MainWindowController.getLoggUser(),MainWindowController.getLoggUser().getEpfId());
+       MainWindowController.loggUser.setName(name.getText());
+    MainWindowController.loggUser.setPreferedName(prefName.getText());
+       System.out.println(prefName.getText()+" guier  "+MainWindowController.loggUser.getPreferedName());
+    db.editprofile(MainWindowController.loggUser,MainWindowController.loggUser.getEpfId());
    }
    @FXML public void NameKeyReleased(){
        int length = name.getText().length();
@@ -155,14 +155,14 @@ private EmployeeMeController parent;
         }}
    
    private void setText(){
-       Employee emp = MainWindowController.getLoggUser();
+       Employee emp = MainWindowController.loggUser;
        if (emp instanceof Engineer){
            Engineer eng = (Engineer) emp;
            name.setText(eng.getName());
            prefName.setText(eng.getPreferedName());
            nic.setText(eng.getNIC());
            epf.setText(eng.getEpfId());
-           department.setText(eng.getDepartment().getName());
+           department.setText(MainWindowController.dep[MainWindowController.Currentid-1]);
            departmentttl.setText("Department");
            position.setText("Engineer");
        }
@@ -172,14 +172,14 @@ private EmployeeMeController parent;
            prefName.setText(oic.getPreferedName());
            nic.setText(oic.getNIC());
            epf.setText(oic.getEpfId());
-           department.setText(oic.getFactor().getName());
+           department.setText(MainWindowController.dep[MainWindowController.Currentid-1]);
            departmentttl.setText("Division");
            position.setText("OIC");
        }
        
    }
    private boolean checkPref() throws RemoteException, NotBoundException{
-       if (prefName.getText() == null ? MainWindowController.getLoggUser().getPreferedName() == null : prefName.getText().equals(MainWindowController.getLoggUser().getPreferedName()))return true;
+       if (prefName.getText() == null ? MainWindowController.loggUser.getPreferedName() == null : prefName.getText().equals(MainWindowController.loggUser.getPreferedName()))return true;
        else return ValidateEmployee.validatePref(prefName.getText(), prefName);
    }
 }

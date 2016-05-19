@@ -90,7 +90,7 @@ public class EmployeeMeController implements Initializable {
                 boolean result = db.resetPassword(eng);
                 if(result) {
                 Dialog.showInfo("Success", "The passwor is been changed successfuly");
-                MainWindowController.loggUser.setPasseord(newP.getText());
+                MainWindowController.currentPassword=newP.getText();
                 MainWindowController.currentPassword=newP.getText();
                 }
                 else Dialog.showError("Server Error, Try again later ");

@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
@@ -60,6 +61,30 @@ public class EmployeeDBAccess {
         }
     }
     
+    public ResultSet checkUIser(String userName,String password) throws SQLException, ClassNotFoundException{
+        String Sql1 = "select * from Engineer where preferedname = '"+userName+"' and password = (select password('"+password+"'));";
+        String Sql2 = "select * from OIC where preferedname = '"+userName+"' and password = (select password('"+password+"'));";
+         lock.writeLock().lock();
+        try{
+        Connection conn = DBConnectionForClient.getConnection();
+        Statement stm = conn.createStatement();
+            System.out.println(Sql1);
+        ResultSet rs1 = stm.executeQuery(Sql1);
+        boolean re1 =rs1.next();
+        if (re1){
+            return rs1;
+            
+        }
+        ResultSet rs2 = stm.executeQuery(Sql2);
+        boolean re2 =rs2.next();
+        if (re2){
+            return rs2;
+        }
+        
+        }
+        finally {lock.writeLock().lock();} 
+       return null; 
+    }    
     public boolean updateEmployeePassword(Employee employee) throws ClassNotFoundException, SQLException {
 //        boolean isOk = false;
 //        String table = null;

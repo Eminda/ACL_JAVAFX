@@ -26,6 +26,10 @@ public class OIC extends Employee{
      super(emplyId, epfId, name, resignedDate);
     }
 
+    public OIC() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public Factory getFactor() {
         return factory;
     }

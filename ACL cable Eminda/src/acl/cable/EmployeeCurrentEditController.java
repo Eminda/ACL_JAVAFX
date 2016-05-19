@@ -318,7 +318,7 @@ public class EmployeeCurrentEditController implements Initializable {
    }
     
     private boolean authorize(){
-        if (emp.getEpfId().equalsIgnoreCase(MainWindowController.getLoggUser().getEpfId())) return true;
+        if (emp.getEpfId().equalsIgnoreCase(MainWindowController.loggUser.getEpfId())) return true;
         else if(emp instanceof Engineer) return false;
         else return true;
     }

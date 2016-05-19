@@ -161,5 +161,30 @@ public class EmployeeControllerImpl extends UnicastRemoteObject implements Emplo
         }
         return false;
     }
+
+    @Override
+    public ArrayList<String> checkUser(String userName, String password) throws RemoteException {
+        try {
+            ResultSet rs = db.checkUIser(userName, password);
+            if (rs==null)return null;
+            
+            ArrayList<String> ar = new ArrayList<String>();
+            ar.add(rs.getString(1));
+            //System.out.println(rs.getString(1)+"fdsfsdfds");
+            ar.add(rs.getString(2));
+            //System.out.println(rs.getString(2)+"fdsfsdfds");
+            ar.add(rs.getString(3));
+            //System.out.println(rs.getString(3)+"fdsfsdfds");
+            ar.add(rs.getString(4));
+            //System.out.println(rs.getString(4)+"fdsfsdfds");
+            ar.add(rs.getString(5));
+           //System.out.println(rs.getString(5)+"fdsfsdfds");
+            return ar;
+        } catch (SQLException ex) {
+            Logger.getLogger(EmployeeControllerImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(EmployeeControllerImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }return null;
+    }
     
 }

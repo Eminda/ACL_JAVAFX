@@ -10,6 +10,7 @@ import acl.cable.modal.comman.Employee;
 import acl.cable.modal.comman.Engineer;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,20 +30,11 @@ import javafx.scene.layout.BorderPane;
  * @author Eminda
  */
 public class MainWindowController implements Initializable {
-    public static ElectricalDepartment elect = new ElectricalDepartment();
-    public static String currentPassword= "ACL@123";
-    public static Engineer loggUser = new Engineer("", "1199", "Isham Mohamed",null);
-    
-    
+public static String[] dep = {"Electrical","Mechanical","AF","CCF","FF","DRF","RMF","S&B","DY"};
+public static Employee loggUser;
+public static String currentPassword;
+public static int Currentid;
 
-    public static Employee getLoggUser() {
-        
-        return loggUser;
-    }
-
-//    public static void setLoggUser(Employee loggUser) {
-//        MainWindowController.loggUser = (Engineer) loggUser;
-//    }
     
     public static MainWindowController controller;
     @FXML
@@ -62,12 +54,13 @@ public class MainWindowController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        loggUser.setNIC("942610340V");
-        loggUser.setPreferedName("Isham123");
-        loggUser.setDepartment(elect);
-        elect.setName("Electrical");
-        controller=this;
-        setMainWindowControl2();
+    try {
+       
+        setLogin();
+        controller = this;
+    } catch (IOException ex) {
+        Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
+    }
     }    
     
     public void setPanelToCener(Node  node){
@@ -82,6 +75,17 @@ public class MainWindowController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public void setLogin() throws IOException{
+         FXMLLoader fx=new FXMLLoader(getClass().getClassLoader().getResource("Login.fxml"));
+        fx.setBuilderFactory(new JavaFXBuilderFactory());
+        AnchorPane pane = null ;
+       
+            pane = (AnchorPane)fx.load(getClass().getResource("Login.fxml").openStream());
+            LoginController lg= (LoginController)fx.getController();
+            lg.setMainWindow(this);
+            pnlView.setCenter(pane);
     }
     
 }

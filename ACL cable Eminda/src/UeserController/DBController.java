@@ -7,6 +7,7 @@ package UeserController;
 
 import ACL_serverAccess.ServerAccess;
 import Controllers.EmployeeController;
+
 import acl.cable.modal.comman.Employee;
 import acl.cable.modal.comman.Engineer;
 import java.rmi.NotBoundException;
@@ -67,5 +68,9 @@ public class DBController {
     }
     public boolean resetPassword(Employee emp) throws RemoteException{
         return ctrl.updateEmployeePassword(emp);
+    }
+    
+    public ArrayList<String> checkUser(String userName,String password) throws RemoteException{
+        return ctrl.checkUser(userName, password);
     }
 }

@@ -4,6 +4,7 @@ import DBAccess.EmployeeDBAccess;
 import DBConnection.DBConnectionForClient;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class test {
     public DBConnectionForClient dbConnection;
@@ -67,7 +68,10 @@ public class test {
 //        e1.setNIC("nic1");
 //        e1.setEpfId("1012");
 //        cont.addEmployee(e1);
-    cont.resigneEmployee("86786", "5674574");
-        System.out.println("calling");
+    ArrayList<String> ar = cont.checkUser("Isham123", "isham");
+    if (ar==null)System.out.println("successed");
+        for (String ar1 : ar) {
+            System.out.println(ar1);
+        }
 }
 }

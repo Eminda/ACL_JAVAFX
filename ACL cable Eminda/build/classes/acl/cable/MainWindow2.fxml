@@ -45,6 +45,7 @@
             <items>
                 <MenuItem mnemonicParsing="false" text="Back Up" />
                 <MenuItem mnemonicParsing="false" text="Restore" />
+                <MenuItem mnemonicParsing="false" text="Logout" onAction="#logoutClicked" />
             </items>
         </MenuButton>
     </children>
